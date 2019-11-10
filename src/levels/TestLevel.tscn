@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=3]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="DirtBlocks" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, 496 )
+
+[node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 32, 656 )
+
+[node name="DirtBlock9" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 480, 656 )
+
+[node name="DirtBlock14" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 288, 656 )
+
+[node name="DirtBlock19" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 736, 656 )
+
+[node name="DirtBlock15" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 224, 592 )
+
+[node name="DirtBlock2" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 224, 656 )
+
+[node name="DirtBlock7" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 672, 656 )
+
+[node name="DirtBlock3" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 96, 656 )
+
+[node name="DirtBlock8" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 544, 656 )
+
+[node name="DirtBlock4" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 352, 656 )
+
+[node name="DirtBlock22" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 800, 656 )
+
+[node name="DirtBlock5" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 160, 656 )
+
+[node name="DirtBlock23" parent="DirtBlocks" instance=ExtResource( 1 )]
+position = Vector2( 608, 656 )
+
+[node name="BedRock" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="RockBlock" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 32, 1216 )
+
+[node name="RockBlock11" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 480, 1216 )
+
+[node name="RockBlock2" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 96, 1216 )
+
+[node name="RockBlock8" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 544, 1216 )
+
+[node name="RockBlock3" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 160, 1216 )
+
+[node name="RockBlock9" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 608, 1216 )
+
+[node name="RockBlock4" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 224, 1216 )
+
+[node name="RockBlock7" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 672, 1216 )
+
+[node name="RockBlock5" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 288, 1216 )
+
+[node name="RockBlock10" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 736, 1216 )
+
+[node name="RockBlock6" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 352, 1216 )
+
+[node name="RockBlock12" parent="BedRock" instance=ExtResource( 2 )]
+position = Vector2( 800, 1216 )
+
+[node name="Shaun" parent="." instance=ExtResource( 3 )]
+position = Vector2( 161.288, 1095.63 )
+
+[node name="FreeBlocks" type="Node2D" parent="."]
