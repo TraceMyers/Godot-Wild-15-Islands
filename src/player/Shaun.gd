@@ -13,7 +13,7 @@ var velocity := Vector2()
 var move_x_input : bool = false
 var jump_input : bool = false
 var jump_higher : bool = false
-
+var facing_right = false
 func _ready():
 	UserInput.connect("move_x", self, "_UserInput_move_x")
 	UserInput.connect("jp_jump", self, "_UserInput_init_jump")
@@ -23,6 +23,10 @@ func _ready():
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 
 func _physics_process(delta):
+	var d_block = $Shovel.get_dirt_block_underneath("cloud")
+	if d_block != null:
+		d_block.bounce()
+		pass
 	if velocity.y < MAX_Y_SPEED:		
 		if jump_higher:
 			velocity.y += GRAVITY * 0.5
@@ -42,7 +46,8 @@ func _physics_process(delta):
 	jump_input = false
 	jump_higher = false
 
-func _UserInput_move_x(dir):
+func _UserInput_move_x(dir,facing):
+	facing_right = facing
 	if is_on_wall():
 		velocity.x /= 2.0
 	if abs(velocity.x) < MAX_X_SPEED or sign(velocity.x) != dir:
@@ -69,6 +74,7 @@ func _UserInput_dig():
 			$Inventory.add("seed", 1)	
 			print("(Add) Seeds: " + String($Inventory.count("seed")))
 		dirt_block.remove_block_from_stack()
+		$Camera2D/shake.start()
 
 func _UserInput_place_block():
 	if $Inventory.empty("dirt_block"):
