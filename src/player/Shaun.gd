@@ -19,12 +19,12 @@ func _ready():
 	var dirt_block_ref = dirt_block_prefab.instance()
 	dirt_block_ref_height = dirt_block_ref.get_node("Sprite").texture.get_size()[1]
 	dirt_block_ref.queue_free()
-	Events.connect("move_x", self, "_Events_move_x")
-	Events.connect("jp_jump", self, "_Events_init_jump")
-	Events.connect("jump", self, "_Events_jump_higher")
-	Events.connect("jp_dig", self, "_Events_dig")
-	Events.connect("jp_place_block", self, "_Events_place_block")
-	Events.connect("jp_plant", self, "_Events_plant")
+	UserInput.connect("move_x", self, "_UserInput_move_x")
+	UserInput.connect("jp_jump", self, "_UserInput_init_jump")
+	UserInput.connect("jump", self, "_UserInput_jump_higher")
+	UserInput.connect("jp_dig", self, "_UserInput_dig")
+	UserInput.connect("jp_place_block", self, "_UserInput_place_block")
+	UserInput.connect("jp_plant", self, "_UserInput_plant")
 
 func _physics_process(delta):
 	if velocity.y < MAX_Y_SPEED:		
@@ -50,21 +50,21 @@ func _physics_process(delta):
 func _get_dirt_block_underneath():
 	pass
 	
-func _Events_move_x(dir):
+func _UserInput_move_x(dir):
 	if is_on_wall():
 		velocity.x /= 2.0
 	if abs(velocity.x) < MAX_X_SPEED or sign(velocity.x) != dir:
 		velocity.x += dir * ACCELERATION
 	move_x_input = true
 
-func _Events_init_jump():
+func _UserInput_init_jump():
 	jump_input = true
 
-func _Events_jump_higher():
+func _UserInput_jump_higher():
 	if not is_on_floor() and velocity.y < 0:
 		jump_higher = true
 
-func _Events_dig():
+func _UserInput_dig():
 	# dirt_block destroy anim
 	var objects_underneath = $Shovel.get_overlapping_bodies()
 	if objects_underneath.size() > 0:
@@ -82,7 +82,7 @@ func _Events_dig():
 				$Inventory.add("dirt_block")
 				print("(Add) Dirt Blocks: " + String($Inventory.count("dirt_block")))
 
-func _Events_place_block():
+func _UserInput_place_block():
 	if $Inventory.empty("dirt_block"):
 		# empty inventory failure anim
 		pass
@@ -113,5 +113,5 @@ func _Events_place_block():
 			$Inventory.remove("dirt_block")
 			print("(Rem) Dirt Blocks: " + String($Inventory.count("dirt_block")))
 
-func _Events_plant():
+func _UserInput_plant():
 	pass
