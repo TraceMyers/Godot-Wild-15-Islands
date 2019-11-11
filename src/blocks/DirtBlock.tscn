@@ -30,7 +30,6 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="SeedBalloon" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="SeedBalloon"]
 position = Vector2( 0, -46 )
@@ -42,7 +41,6 @@ position = Vector2( 0, -64 )
 shape = SubResource( 1 )
 
 [node name="DetectCeiling" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, -16 )
 collision_mask = 2
 script = ExtResource( 5 )
@@ -51,7 +49,6 @@ script = ExtResource( 5 )
 shape = SubResource( 2 )
 
 [node name="DetectFloor" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 15.5 )
 script = ExtResource( 5 )
 
