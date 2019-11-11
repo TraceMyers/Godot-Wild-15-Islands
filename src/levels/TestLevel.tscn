@@ -52,7 +52,6 @@ position = Vector2( 160, 656 )
 position = Vector2( 608, 656 )
 
 [node name="BedRock" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="RockBlock" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 32, 1216 )
@@ -96,7 +95,6 @@ position = Vector2( 161.288, 1095.63 )
 [node name="FreeBlocks" type="Node2D" parent="."]
 
 [node name="StaticItems" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="StaticBlock" parent="StaticItems" instance=ExtResource( 5 )]
 position = Vector2( 832, 864 )
