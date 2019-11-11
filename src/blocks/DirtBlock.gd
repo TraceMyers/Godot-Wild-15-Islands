@@ -47,11 +47,14 @@ func stack_empty():
 
 func add_block_to_stack():
 	# very temp
+	position.y -= 32.0
 	scale.y += 1
 	stack_size += 1
 	float_speed -= 1.005
 
 func remove_block_from_stack():
+	# very temp
+	position.y += 32.0
 	stack_size -= 1
 	if stack_size == 0:
 		queue_free()

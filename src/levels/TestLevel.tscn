@@ -10,7 +10,6 @@
 script = ExtResource( 1 )
 
 [node name="DirtBlocks" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 496 )
 
 [node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 2 )]
