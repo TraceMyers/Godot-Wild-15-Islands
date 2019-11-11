@@ -91,6 +91,7 @@ position = Vector2( 352, 1216 )
 position = Vector2( 800, 1216 )
 
 [node name="cloud" parent="BedRock" instance=ExtResource( 6 )]
+position = Vector2( 559.908, 743.504 )
 scale = Vector2( 3.12397, 4.13127 )
 
 [node name="Shaun" parent="." instance=ExtResource( 4 )]
