@@ -7,18 +7,14 @@ const MIN_X_SPEED : float = 8.0
 const INIT_JUMP_SPEED : float = -440.0
 const MAX_Y_SPEED : float = 800.0
 const GRAVITY : float = 24.0
+const CREATE_BLOCK_MOVE : float = -80.0
 
-var dirt_block_prefab = preload("res://src/blocks/DirtBlock.tscn")
-var dirt_block_ref_height
 var velocity := Vector2()
 var move_x_input : bool = false
 var jump_input : bool = false
 var jump_higher : bool = false
 
 func _ready():
-	var dirt_block_ref = dirt_block_prefab.instance()
-	dirt_block_ref_height = dirt_block_ref.get_node("Sprite").texture.get_size()[1]
-	dirt_block_ref.queue_free()
 	UserInput.connect("move_x", self, "_UserInput_move_x")
 	UserInput.connect("jp_jump", self, "_UserInput_init_jump")
 	UserInput.connect("jump", self, "_UserInput_jump_higher")
@@ -33,23 +29,19 @@ func _physics_process(delta):
 		elif not is_on_floor():	
 			velocity.y += GRAVITY		
 		else:
-			# forces player into floor, making is_on_floor() checks work
-			velocity.y = 1 
-	if is_on_floor():
+			velocity.y = 0.0
+	if $DetectFloor.on_floor():
 		if jump_input:
 			velocity.y = INIT_JUMP_SPEED
 		if not move_x_input:
 			velocity.x = int(velocity.x * DECELERATION)
 			if abs(velocity.x) < MIN_X_SPEED:
 				velocity.x = 0.0
+	move_and_slide(velocity, Vector2(0.0, -1.0))
 	move_x_input = false	
 	jump_input = false
 	jump_higher = false
-	move_and_slide(velocity, Vector2(0.0, -1.0))
 
-func _get_dirt_block_underneath():
-	pass
-	
 func _UserInput_move_x(dir):
 	if is_on_wall():
 		velocity.x /= 2.0
@@ -65,53 +57,65 @@ func _UserInput_jump_higher():
 		jump_higher = true
 
 func _UserInput_dig():
-	# dirt_block destroy anim
-	var objects_underneath = $Shovel.get_overlapping_bodies()
-	if objects_underneath.size() > 0:
-		var dirt_block = null
-		for object in objects_underneath:
-			if "DirtBlock" in object.get_name():
-				dirt_block = object
-		if dirt_block != null:		
-			dirt_block.queue_free()
-			if $Inventory.full("dirt_block"):
-				# full inventory failure anim
-				pass
-			else:	
-				# store in inventory success anim
-				$Inventory.add("dirt_block")
-				print("(Add) Dirt Blocks: " + String($Inventory.count("dirt_block")))
+	var dirt_block = $Shovel.get_dirt_block_underneath()
+	if dirt_block != null:
+		if $Inventory.full("dirt_block"):
+			#anim
+			pass
+		else:	
+			$Inventory.add("dirt_block", 1)
+			print("(Add) Dirt Blocks: " + String($Inventory.count("dirt_block")))
+		if dirt_block.seeded and dirt_block.stack_size == 1:
+			$Inventory.add("seed", 1)	
+			print("(Add) Seeds: " + String($Inventory.count("seed")))
+		dirt_block.remove_block_from_stack()
 
 func _UserInput_place_block():
 	if $Inventory.empty("dirt_block"):
-		# empty inventory failure anim
+		#anim
 		pass
-	else:		
-		var new_pos_change = Vector2(0.0, -dirt_block_ref_height - 30.0)
-		var self_collision = move_and_collide(new_pos_change, true, true, true)
-		var block_collisions : Array = [
-			move_and_collide(Vector2(-16.0, 0.0), true, true, true),
-			move_and_collide(Vector2(16.0, 0.0), true, true, true),
-			move_and_collide(Vector2(-16.0, -16.0), true, true, true),
-			move_and_collide(Vector2(16.0, -16.0), true, true, true),
-		]
-		var block_collide : bool = false
-		for collis in block_collisions:
-			if collis != null:
-				block_collide = true
-		if self_collision != null or block_collide:
-			# placement failure anim
-			pass
+	else:
+		var player_pos_change = Vector2(0.0, CREATE_BLOCK_MOVE)
+		if _block_place_ok(player_pos_change):
+			_create_block_and_move(player_pos_change)
 		else: 	
-			# placement success anim
-			var dirt_block = dirt_block_prefab.instance()
-			dirt_block.position = Vector2(position.x, position.y - 8.0)
-			position += new_pos_change
-			velocity.y /= 5.0
-			velocity.x /= 3.0
-			get_parent().get_node("FreeBlocks").add_child(dirt_block)
-			$Inventory.remove("dirt_block")
-			print("(Rem) Dirt Blocks: " + String($Inventory.count("dirt_block")))
+			#anim
+			pass
+			
+func _block_place_ok(player_pos_change):
+	var self_collision = move_and_collide(player_pos_change, true, true, true) != null
+	var place_block_collision = $PlaceBlock.get_overlapping_bodies().size() > 1
+	return not self_collision and not place_block_collision
+
+func _create_block_and_move(player_pos_change):
+	var dirt_block = $Shovel.get_dirt_block_underneath()
+	if dirt_block != null and dirt_block.seeded and not dirt_block.stack_full():
+		dirt_block.add_block_to_stack()
+	else:	
+		Events.emit_signal(
+			"create",
+			"dirt_block", 
+			position + $PlaceBlock.position, 
+			"FreeBlocks",
+			true
+		)
+	position += player_pos_change
+	velocity.y /= 5.0
+	velocity.x /= 3.0
+	$Inventory.remove("dirt_block")
+	print("(Rem) Dirt Blocks: " + String($Inventory.count("dirt_block")))
 
 func _UserInput_plant():
-	pass
+	var dirt_block = $Shovel.get_dirt_block_underneath()
+	if dirt_block != null:
+		if dirt_block.seeded and not $Inventory.full("seed"):
+			dirt_block.remove_seed()
+			$Inventory.add("seed", 1)
+			print("(Add) Seeds: " + String($Inventory.count("seed")))
+		elif not dirt_block.seeded and not $Inventory.empty("seed"):	
+			dirt_block.plant_seed()
+			$Inventory.remove("seed")
+			print("(Rem) Seeds: " + String($Inventory.count("seed")))
+		else:
+			#anim
+			pass	

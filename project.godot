@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 UserInput="*res://src/main/Input.gd"
+Events="*res://src/main/Events.gd"
 
 [display]
 
