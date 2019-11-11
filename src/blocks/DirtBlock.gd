@@ -4,6 +4,7 @@ const MAX_Y_SPEED : float = 800.0
 const GRAVITY : float = 24.0
 
 var velocity := Vector2()
+var seeded : bool = false
 
 func _ready():
 	$SeedSprite.hide()
@@ -18,3 +19,6 @@ func _physics_process(delta):
 			velocity.y = 1.0
 	move_and_slide(velocity, Vector2(0.0, -1.0))
 
+func seed():
+	$SeedSprite.show()
+	$SeedBalloon.show()

@@ -24,6 +24,7 @@ func _ready():
 	Events.connect("jump", self, "_Events_jump_higher")
 	Events.connect("jp_dig", self, "_Events_dig")
 	Events.connect("jp_place_block", self, "_Events_place_block")
+	Events.connect("jp_plant", self, "_Events_plant")
 
 func _physics_process(delta):
 	if velocity.y < MAX_Y_SPEED:		
@@ -46,6 +47,9 @@ func _physics_process(delta):
 	jump_higher = false
 	move_and_slide(velocity, Vector2(0.0, -1.0))
 
+func _get_dirt_block_underneath():
+	pass
+	
 func _Events_move_x(dir):
 	if is_on_wall():
 		velocity.x /= 2.0
@@ -108,3 +112,6 @@ func _Events_place_block():
 			get_parent().get_node("FreeBlocks").add_child(dirt_block)
 			$Inventory.remove("dirt_block")
 			print("(Rem) Dirt Blocks: " + String($Inventory.count("dirt_block")))
+
+func _Events_plant():
+	pass

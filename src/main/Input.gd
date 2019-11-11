@@ -13,3 +13,5 @@ func _physics_process(delta):
 		Events.emit_signal("jp_dig")	
 	if Input.is_action_just_pressed("ui_option"):
 		Events.emit_signal("jp_place_block")	
+	if Input.is_action_just_pressed("ui_cancel"):
+		Events.emit_signal("jp_plant")	
