@@ -5,10 +5,11 @@ const DECELERATION : float = 0.7
 const MAX_X_SPEED : float = 200.0
 const MIN_X_SPEED : float = 8.0
 const INIT_JUMP_SPEED : float = -440.0
-const MAX_Y_SPEED : float = 800.0
+const MAX_Y_SPEED : float = 1000.0
 const GRAVITY : float = 24.0
 const CREATE_BLOCK_MOVE : float = -80.0
 
+var jumpCount =2
 var hard_land : bool = false
 var velocity := Vector2()
 var move_x_input : bool = false
@@ -29,7 +30,7 @@ func _physics_process(delta):
 	if d_block != null:
 		d_block.bounce()
 		pass
-	if velocity.y>600 :
+	if velocity.y>850 :
 		print( velocity.y)
 		hard_land = true
 	if velocity.y < MAX_Y_SPEED:		
@@ -38,6 +39,7 @@ func _physics_process(delta):
 		elif not is_on_floor():	
 			velocity.y += GRAVITY		
 		else:
+			jumpCount =2
 			if hard_land:
 				hard_land= false
 				hard_land()
@@ -64,7 +66,11 @@ func _UserInput_move_x(dir,facing):
 	move_x_input = true
 
 func _UserInput_init_jump():
-	jump_input = true
+	if jumpCount!=0:
+		jump_input = true
+		jumpCount-=1
+	else:
+		jump_input =false
 
 func _UserInput_jump_higher():
 	if not is_on_floor() and velocity.y < 0:
