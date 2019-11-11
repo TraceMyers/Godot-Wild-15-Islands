@@ -60,3 +60,8 @@ func remove_block_from_stack():
 		queue_free()
 	scale.y -= 1
 	float_speed += 1.005
+
+func _on_DetectCeiling_body_entered(body):
+	if "cloud" in body.name:
+		position.y += -200
+	pass # Replace with function body.

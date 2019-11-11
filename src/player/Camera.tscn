@@ -19,7 +19,7 @@ script = ExtResource( 3 )
 
 [node name="duration" type="Timer" parent="shake"]
 one_shot = true
-[connection signal="timeout" from="shake/frequency" to="." method="_on_frequency_timeout"]
+
 [connection signal="timeout" from="shake/frequency" to="shake" method="_on_frequency_timeout"]
-[connection signal="timeout" from="shake/duration" to="." method="_on_duration_timeout"]
+
 [connection signal="timeout" from="shake/duration" to="shake" method="_on_duration_timeout"]

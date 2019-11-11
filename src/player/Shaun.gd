@@ -23,6 +23,10 @@ func _ready():
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 
 func _physics_process(delta):
+	var d_block = $Shovel.get_dirt_block_underneath("cloud")
+	if d_block != null:
+		d_block.bounce()
+		pass
 	if velocity.y < MAX_Y_SPEED:		
 		if jump_higher:
 			velocity.y += GRAVITY * 0.5

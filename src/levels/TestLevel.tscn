@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/levels/TestLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/blocks/StaticBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=6]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -88,6 +89,9 @@ position = Vector2( 352, 1216 )
 
 [node name="RockBlock12" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 800, 1216 )
+
+[node name="cloud" parent="BedRock" instance=ExtResource( 6 )]
+scale = Vector2( 3.12397, 4.13127 )
 
 [node name="Shaun" parent="." instance=ExtResource( 4 )]
 position = Vector2( 161.288, 1095.63 )
