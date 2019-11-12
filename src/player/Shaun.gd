@@ -5,10 +5,12 @@ const DECELERATION : float = 0.7
 const MAX_X_SPEED : float = 200.0
 const MIN_X_SPEED : float = 8.0
 const INIT_JUMP_SPEED : float = -440.0
-const MAX_Y_SPEED : float = 800.0
+const MAX_Y_SPEED : float = 1000.0
 const GRAVITY : float = 24.0
 const CREATE_BLOCK_MOVE : float = -80.0
 
+var jumpCount =2
+var hard_land : bool = false
 var velocity := Vector2()
 var move_x_input : bool = false
 var jump_input : bool = false
@@ -23,16 +25,25 @@ func _ready():
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 
 func _physics_process(delta):
+	
 	var d_block = $Shovel.get_dirt_block_underneath("cloud")
 	if d_block != null:
 		d_block.bounce()
 		pass
+	if velocity.y>850 :
+		print( velocity.y)
+		hard_land = true
 	if velocity.y < MAX_Y_SPEED:		
 		if jump_higher:
 			velocity.y += GRAVITY * 0.5
 		elif not is_on_floor():	
 			velocity.y += GRAVITY		
 		else:
+			jumpCount =2
+			if hard_land:
+				hard_land= false
+				hard_land()
+				
 			velocity.y = 0.0
 	if $DetectFloor.on_floor():
 		if jump_input:
@@ -41,7 +52,7 @@ func _physics_process(delta):
 			velocity.x = int(velocity.x * DECELERATION)
 			if abs(velocity.x) < MIN_X_SPEED:
 				velocity.x = 0.0
-	move_and_slide(velocity, Vector2(0.0, -1.0))
+	velocity=move_and_slide(velocity, Vector2(0.0, -1.0))
 	move_x_input = false	
 	jump_input = false
 	jump_higher = false
@@ -55,7 +66,11 @@ func _UserInput_move_x(dir,facing):
 	move_x_input = true
 
 func _UserInput_init_jump():
-	jump_input = true
+	if jumpCount!=0:
+		jump_input = true
+		jumpCount-=1
+	else:
+		jump_input =false
 
 func _UserInput_jump_higher():
 	if not is_on_floor() and velocity.y < 0:
@@ -125,3 +140,8 @@ func _UserInput_plant():
 		else:
 			#anim
 			pass	
+func hard_land():
+	_UserInput_dig()
+	$Camera2D/shake.start()
+	#adding animation or particles
+	pass
