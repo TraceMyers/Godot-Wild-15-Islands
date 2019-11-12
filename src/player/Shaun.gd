@@ -27,11 +27,9 @@ func _ready():
 func _physics_process(delta):
 	
 	var d_block = $Shovel.get_dirt_block_underneath("cloud")
-	if d_block != null:
-		d_block.bounce()
-		pass
+
 	if velocity.y>850 :
-		print( velocity.y)
+
 		hard_land = true
 	if velocity.y < MAX_Y_SPEED:		
 		if jump_higher:
@@ -47,6 +45,8 @@ func _physics_process(delta):
 			velocity.y = 0.0
 	if $DetectFloor.on_floor():
 		if jump_input:
+			if d_block != null:
+				d_block.bounce()
 			velocity.y = INIT_JUMP_SPEED
 		if not move_x_input:
 			velocity.x = int(velocity.x * DECELERATION)

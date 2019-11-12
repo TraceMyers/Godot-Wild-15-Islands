@@ -61,6 +61,7 @@ func remove_block_from_stack():
 	scale.y -= 1
 	float_speed += 1.005
 
+
 func _on_DetectCeiling_body_entered(body):
 	if "cloud" in body.name:
 		body.get_node("CollisionPolygon2D").call_deferred("set_disabled",true)
