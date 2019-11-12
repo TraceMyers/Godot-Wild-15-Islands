@@ -90,10 +90,6 @@ position = Vector2( 352, 1216 )
 [node name="RockBlock12" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 800, 1216 )
 
-[node name="cloud" parent="BedRock" instance=ExtResource( 6 )]
-position = Vector2( 559.908, 743.504 )
-scale = Vector2( 3.12397, 4.13127 )
-
 [node name="Shaun" parent="." instance=ExtResource( 4 )]
 position = Vector2( 161.288, 1095.63 )
 
@@ -109,3 +105,7 @@ position = Vector2( 896, 864 )
 
 [node name="StaticBlock3" parent="StaticItems" instance=ExtResource( 5 )]
 position = Vector2( 960, 864 )
+
+[node name="Cloud" parent="StaticItems" instance=ExtResource( 6 )]
+position = Vector2( 559.908, 743.504 )
+scale = Vector2( 3.12397, 4.13127 )

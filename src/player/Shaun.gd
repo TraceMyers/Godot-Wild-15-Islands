@@ -140,6 +140,7 @@ func _UserInput_plant():
 		else:
 			#anim
 			pass	
+
 func hard_land():
 	_UserInput_dig()
 	$Camera2D/shake.start()

@@ -6,6 +6,7 @@
 extents = Vector2( 32.7649, 32.0165 )
 
 [node name="RockBlock" type="KinematicBody2D"]
+collision_layer = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
