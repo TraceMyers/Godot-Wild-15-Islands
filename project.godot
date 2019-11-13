@@ -26,8 +26,8 @@ Events="*res://src/main/Events.gd"
 
 [display]
 
-window/size/width=1631
-window/size/height=1248
+window/size/width=1280
+window/size/height=960
 
 [input]
 

@@ -9,6 +9,7 @@ var pushable_body_names : Array = [
 	"Shaun",
 	"Seed",
 ]
+var shaun_pushed : bool = false # ...
 
 func _ready():
 	push_area_len = $Sprite.texture.get_size().x * $Sprite.scale.x
@@ -18,7 +19,8 @@ func _ready():
 
 func _process(delta):
 	var bodies : Array = get_overlapping_bodies()
-	# If it works, I'm happy
+	shaun_pushed = false
+	# If it works, I'm happy (sort of)
 	for body in bodies:
 		for pbn in pushable_body_names:
 			var body_name = body.get_name()
@@ -33,10 +35,24 @@ func _process(delta):
 							push = Vector2.ZERO	
 					else:
 						push = _get_push(body)
-				elif "Dirt" in body_name and body.seeded:		
+					if not shaun_pushed:	
+						body.position += push
+						body.velocity.y -= push.y
+						shaun_pushed = true
+				elif "Dirt" in body_name:		
 					push = _get_push(body)
-					body.fan_push = push
-				body.position += push
+					body.fan_push += push
+					if not shaun_pushed:
+						var shaun = get_parent().get_parent().get_node("Shaun")
+						var block_under_shaun = shaun.get_node("Shovel").get_block_underneath()
+						if block_under_shaun == body:
+							shaun.position += push
+							shaun.velocity.y -= push.y
+							shaun_pushed = true
+				else:
+					push = _get_push(body)
+					body.position += push	
+
 
 func _get_push(body):
 	var distance = get_parent().position.distance_to(body.position)

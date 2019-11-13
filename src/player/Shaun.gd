@@ -31,11 +31,6 @@ func _physics_process(delta):
 		pass
 	if velocity.y >= MAX_Y_SPEED :
 		hard_land = true
-	if velocity.y < MAX_Y_SPEED:		
-		if jump_higher:
-			velocity.y += GRAVITY * 0.5 
-		elif not is_on_floor():	
-			velocity.y += GRAVITY 
 	if $DetectFloor.on_floor():
 		velocity.y = 0.0
 		if hard_land:
@@ -47,6 +42,11 @@ func _physics_process(delta):
 			velocity.x = int(velocity.x * DECELERATION)
 			if abs(velocity.x) < MIN_X_SPEED:
 				velocity.x = 0.0
+	elif velocity.y < MAX_Y_SPEED:		
+		if jump_higher:
+			velocity.y += GRAVITY * 0.5 
+		elif not is_on_floor():	
+			velocity.y += GRAVITY 
 	move_and_slide_with_snap(velocity, Vector2(0.0, -1.0))
 	move_x_input = false	
 	jump_input = false

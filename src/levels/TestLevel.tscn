@@ -12,7 +12,6 @@
 script = ExtResource( 1 )
 
 [node name="DirtBlocks" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 32, 1152 )
@@ -38,6 +37,9 @@ position = Vector2( 1312, 1152 )
 [node name="DirtBlock21" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 2080, 1152 )
 
+[node name="DirtBlock40" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2592, 1152 )
+
 [node name="DirtBlock15" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 224, 1088 )
 
@@ -53,6 +55,9 @@ position = Vector2( 1248, 1152 )
 [node name="DirtBlock17" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 2016, 1152 )
 
+[node name="DirtBlock18" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2528, 1152 )
+
 [node name="DirtBlock3" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 96, 1152 )
 
@@ -64,6 +69,9 @@ position = Vector2( 1120, 1152 )
 
 [node name="DirtBlock13" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 1888, 1152 )
+
+[node name="DirtBlock44" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2400, 1152 )
 
 [node name="DirtBlock4" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 352, 1152 )
@@ -77,6 +85,9 @@ position = Vector2( 1376, 1152 )
 [node name="DirtBlock33" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 2144, 1152 )
 
+[node name="DirtBlock45" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2656, 1152 )
+
 [node name="DirtBlock24" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 864, 1152 )
 
@@ -88,6 +99,9 @@ position = Vector2( 1440, 1152 )
 
 [node name="DirtBlock38" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 2208, 1152 )
+
+[node name="DirtBlock46" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2720, 1152 )
 
 [node name="DirtBlock25" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 928, 1152 )
@@ -101,6 +115,9 @@ position = Vector2( 1504, 1152 )
 [node name="DirtBlock39" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 2272, 1152 )
 
+[node name="DirtBlock41" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2784, 1152 )
+
 [node name="DirtBlock26" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 992, 1152 )
 
@@ -113,6 +130,9 @@ position = Vector2( 1568, 1152 )
 [node name="DirtBlock34" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 2336, 1152 )
 
+[node name="DirtBlock42" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2848, 1152 )
+
 [node name="DirtBlock5" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 160, 1152 )
 
@@ -124,6 +144,9 @@ position = Vector2( 1184, 1152 )
 
 [node name="DirtBlock32" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 1952, 1152 )
+
+[node name="DirtBlock43" parent="DirtBlocks" instance=ExtResource( 2 )]
+position = Vector2( 2464, 1152 )
 
 [node name="BedRock" type="Node2D" parent="."]
 editor/display_folded = true
@@ -152,6 +175,9 @@ position = Vector2( 1120, 1216 )
 [node name="RockBlock28" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 1888, 1216 )
 
+[node name="RockBlock42" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2400, 1216 )
+
 [node name="RockBlock3" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 160, 1216 )
 
@@ -163,6 +189,9 @@ position = Vector2( 1184, 1216 )
 
 [node name="RockBlock34" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 1952, 1216 )
+
+[node name="RockBlock43" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2464, 1216 )
 
 [node name="RockBlock4" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 224, 1216 )
@@ -176,6 +205,9 @@ position = Vector2( 1248, 1216 )
 [node name="RockBlock32" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 2016, 1216 )
 
+[node name="RockBlock44" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2528, 1216 )
+
 [node name="RockBlock5" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 288, 1216 )
 
@@ -187,6 +219,9 @@ position = Vector2( 1312, 1216 )
 
 [node name="RockBlock29" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 2080, 1216 )
+
+[node name="RockBlock39" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2592, 1216 )
 
 [node name="RockBlock6" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 352, 1216 )
@@ -200,6 +235,9 @@ position = Vector2( 1376, 1216 )
 [node name="RockBlock31" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 2144, 1216 )
 
+[node name="RockBlock40" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2656, 1216 )
+
 [node name="RockBlock13" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 864, 1216 )
 
@@ -211,6 +249,9 @@ position = Vector2( 1440, 1216 )
 
 [node name="RockBlock30" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 2208, 1216 )
+
+[node name="RockBlock37" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2720, 1216 )
 
 [node name="RockBlock14" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 928, 1216 )
@@ -224,6 +265,9 @@ position = Vector2( 1504, 1216 )
 [node name="RockBlock35" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 2272, 1216 )
 
+[node name="RockBlock41" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2784, 1216 )
+
 [node name="RockBlock15" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 992, 1216 )
 
@@ -236,12 +280,16 @@ position = Vector2( 1568, 1216 )
 [node name="RockBlock33" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 2336, 1216 )
 
+[node name="RockBlock38" parent="BedRock" instance=ExtResource( 3 )]
+position = Vector2( 2848, 1216 )
+
 [node name="Shaun" parent="." instance=ExtResource( 4 )]
 position = Vector2( 161.288, 1096 )
 
 [node name="FreeBlocks" type="Node2D" parent="."]
 
 [node name="StaticItems" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="StaticBlock" parent="StaticItems" instance=ExtResource( 5 )]
 position = Vector2( 832, 864 )
@@ -259,12 +307,16 @@ scale = Vector2( 3.12397, 4.13127 )
 [node name="FloatCombine" type="Node2D" parent="."]
 
 [node name="Fan" parent="." instance=ExtResource( 7 )]
-position = Vector2( 280, 672 )
+position = Vector2( 1152, 576 )
+
+[node name="Fan4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2368, 896 )
+rotation = -2.66512
 
 [node name="Fan2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1536, 256 )
+position = Vector2( 1856, 320 )
 rotation = 1.5708
 
 [node name="Fan3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1248, 928 )
+position = Vector2( 1632, 960 )
 rotation = -1.5708
