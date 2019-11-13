@@ -17,7 +17,7 @@ extents = Vector2( 2, 1 )
 extents = Vector2( 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 14, 1 )
+extents = Vector2( 14, 2 )
 
 [node name="Shaun" type="KinematicBody2D"]
 z_index = 1
@@ -33,6 +33,7 @@ shape = SubResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Shovel" type="Area2D" parent="."]
+editor/display_folded = true
 visible = false
 script = ExtResource( 4 )
 
@@ -42,17 +43,18 @@ scale = Vector2( 0.25, 4 )
 shape = SubResource( 2 )
 
 [node name="PlaceBlock" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock"]
 shape = SubResource( 3 )
 
 [node name="DetectFloor" type="Area2D" parent="."]
-position = Vector2( 0, 24 )
+editor/display_folded = true
+position = Vector2( 0, 23 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectFloor"]
+position = Vector2( 0, 2 )
 shape = SubResource( 4 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 6 )]
