@@ -9,6 +9,8 @@ const MAX_Y_SPEED : float = 1000.0
 const GRAVITY : float = 24.0
 const CREATE_BLOCK_MOVE : float = -80.0
 
+var dir = Vector2()
+var climing = false
 var jumpCount =2
 var hard_land : bool = false
 var velocity := Vector2()
@@ -16,6 +18,7 @@ var move_x_input : bool = false
 var jump_input : bool = false
 var jump_higher : bool = false
 var facing_right = false
+var SPEED = 1000
 func _ready():
 	UserInput.connect("move_x", self, "_UserInput_move_x")
 	UserInput.connect("jp_jump", self, "_UserInput_init_jump")
@@ -23,9 +26,11 @@ func _ready():
 	UserInput.connect("jp_dig", self, "_UserInput_dig")
 	UserInput.connect("jp_place_block", self, "_UserInput_place_block")
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
-
+	UserInput.connect("ladder_dir",self,"ladder_input")
 func _physics_process(delta):
-	
+	if climing:
+		ladder_move(delta)
+		return
 	var d_block = $Shovel.get_dirt_block_underneath("cloud")
 
 	if velocity.y>850 :
@@ -65,7 +70,7 @@ func _UserInput_move_x(dir,facing):
 		velocity.x += dir * ACCELERATION
 	move_x_input = true
 
-func _UserInput_init_jump():
+func _UserInput_init_jump(): 
 	if jumpCount!=0:
 		jump_input = true
 		jumpCount-=1
@@ -73,10 +78,13 @@ func _UserInput_init_jump():
 		jump_input =false
 
 func _UserInput_jump_higher():
+	
 	if not is_on_floor() and velocity.y < 0:
 		jump_higher = true
 
 func _UserInput_dig():
+	if climing:
+		return
 	var dirt_block = $Shovel.get_dirt_block_underneath()
 	if dirt_block != null:
 		if $Inventory.full("dirt_block"):
@@ -92,6 +100,8 @@ func _UserInput_dig():
 		$Camera2D/shake.start()
 
 func _UserInput_place_block():
+	if climing:
+		return
 	if $Inventory.empty("dirt_block"):
 		#anim
 		pass
@@ -127,6 +137,8 @@ func _create_block_and_move(player_pos_change):
 	print("(Rem) Dirt Blocks: " + String($Inventory.count("dirt_block")))
 
 func _UserInput_plant():
+	if climing:
+		return
 	var dirt_block = $Shovel.get_dirt_block_underneath()
 	if dirt_block != null:
 		if dirt_block.seeded and not $Inventory.full("seed"):
@@ -145,3 +157,31 @@ func hard_land():
 	$Camera2D/shake.start()
 	#adding animation or particles
 	pass
+
+func ladder_input(move):
+	dir = move
+	pass
+
+func ladder_move(delta):
+	print(velocity)
+	dir.x=dir.normalized().x
+	velocity= dir * SPEED * delta
+	velocity *= 6
+
+	velocity=move_and_slide(velocity,Vector2(0,0))
+	if jump_higher:
+		velocity.y = -1000
+		jump_higher =false
+	dir = Vector2(0,0)
+	pass
+
+func _on_ladder_body_entered(body):
+	if body.name == "Shaun":
+		climing = true
+	pass # Replace with function body.
+
+
+func _on_ladder_body_exited(body):
+	if body.name == "Shaun":
+		climing = false
+	pass # Replace with function body.
