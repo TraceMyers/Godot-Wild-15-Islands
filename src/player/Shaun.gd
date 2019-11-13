@@ -9,13 +9,13 @@ const MAX_Y_SPEED : float = 1000.0
 const GRAVITY : float = 24.0
 const CREATE_BLOCK_MOVE : float = -80.0
 
-var jumpCount =2
 var hard_land : bool = false
 var velocity := Vector2()
 var move_x_input : bool = false
 var jump_input : bool = false
 var jump_higher : bool = false
 var facing_right = false
+
 func _ready():
 	UserInput.connect("move_x", self, "_UserInput_move_x")
 	UserInput.connect("jp_jump", self, "_UserInput_init_jump")
@@ -25,34 +25,25 @@ func _ready():
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 
 func _physics_process(delta):
-	
-	var d_block = $Shovel.get_dirt_block_underneath("cloud")
-
-	if velocity.y>850 :
-
+	if velocity.y >= MAX_Y_SPEED :
 		hard_land = true
-	if velocity.y < MAX_Y_SPEED:		
-		if jump_higher:
-			velocity.y += GRAVITY * 0.5
-		elif not is_on_floor():	
-			velocity.y += GRAVITY		
-		else:
-			jumpCount =2
-			if hard_land:
-				hard_land= false
-				hard_land()
-				
-			velocity.y = 0.0
 	if $DetectFloor.on_floor():
+		velocity.y = 0.0
+		if hard_land:
+			hard_land = false
+			hard_land()
 		if jump_input:
-			if d_block != null:
-				d_block.bounce()
 			velocity.y = INIT_JUMP_SPEED
 		if not move_x_input:
 			velocity.x = int(velocity.x * DECELERATION)
 			if abs(velocity.x) < MIN_X_SPEED:
 				velocity.x = 0.0
-	velocity=move_and_slide(velocity, Vector2(0.0, -1.0))
+	elif velocity.y < MAX_Y_SPEED:		
+		if jump_higher:
+			velocity.y += GRAVITY * 0.5 
+		elif not is_on_floor():	
+			velocity.y += GRAVITY 
+	move_and_slide_with_snap(velocity, Vector2(0.0, -1.0))
 	move_x_input = false	
 	jump_input = false
 	jump_higher = false
@@ -66,18 +57,14 @@ func _UserInput_move_x(dir,facing):
 	move_x_input = true
 
 func _UserInput_init_jump():
-	if jumpCount!=0:
-		jump_input = true
-		jumpCount-=1
-	else:
-		jump_input =false
+	jump_input = true
 
 func _UserInput_jump_higher():
 	if not is_on_floor() and velocity.y < 0:
 		jump_higher = true
 
 func _UserInput_dig():
-	var dirt_block = $Shovel.get_dirt_block_underneath()
+	var dirt_block = $Shovel.get_block_underneath()
 	if dirt_block != null:
 		if $Inventory.full("dirt_block"):
 			#anim
@@ -104,12 +91,19 @@ func _UserInput_place_block():
 			pass
 			
 func _block_place_ok(player_pos_change):
+	var dirt_block = $Shovel.get_block_underneath()
 	var self_collision = move_and_collide(player_pos_change, true, true, true) != null
-	var place_block_collision = $PlaceBlock.get_overlapping_bodies().size() > 1
-	return not self_collision and not place_block_collision
+	var place_block_collisions = $PlaceBlock.get_overlapping_bodies()
+	var count = place_block_collisions.size()
+	for item in place_block_collisions:
+		if item == self:
+			count -= 1
+		if dirt_block != null and dirt_block.seeded and item == dirt_block:
+			count -= 1	
+	return not self_collision and count <= 0
 
 func _create_block_and_move(player_pos_change):
-	var dirt_block = $Shovel.get_dirt_block_underneath()
+	var dirt_block = $Shovel.get_block_underneath()
 	if dirt_block != null and dirt_block.seeded and not dirt_block.stack_full():
 		dirt_block.add_block_to_stack()
 	else:	
@@ -127,7 +121,7 @@ func _create_block_and_move(player_pos_change):
 	print("(Rem) Dirt Blocks: " + String($Inventory.count("dirt_block")))
 
 func _UserInput_plant():
-	var dirt_block = $Shovel.get_dirt_block_underneath()
+	var dirt_block = $Shovel.get_block_underneath()
 	if dirt_block != null:
 		if dirt_block.seeded and not $Inventory.full("seed"):
 			dirt_block.remove_seed()
@@ -140,6 +134,7 @@ func _UserInput_plant():
 		else:
 			#anim
 			pass	
+
 func hard_land():
 	_UserInput_dig()
 	$Camera2D/shake.start()

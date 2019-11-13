@@ -25,13 +25,13 @@ func start(Duration=0.2,Frequency=15,amplitude =16,priority =0):
 		timer.start()
 		new_shake()
 		pass
+
 func new_shake():
 	var rand =Vector2()
 	rand.x = rand_range(-amplitude,amplitude)
 	rand.y = rand_range(-amplitude,amplitude)
 	$Tween.interpolate_property(camera,"offset",camera.offset,rand,timer.wait_time,trans,EASE)
 	$Tween.start()
-
 
 func restart():
 	var rand =Vector2()
