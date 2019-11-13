@@ -16,20 +16,18 @@ _global_script_class_icons={
 [application]
 
 config/name="GodotWildJam15"
-run/main_scene="res://src/main/menu.tscn"
+run/main_scene="res://src/main/Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 UserInput="*res://src/main/Input.gd"
 Events="*res://src/main/Events.gd"
-fade="*res://src/main/fade.tscn"
 
 [display]
 
 window/size/width=1280
 window/size/height=960
-window/stretch/mode="2d"
 
 [input]
 

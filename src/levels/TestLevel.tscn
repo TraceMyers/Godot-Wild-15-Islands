@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/levels/TestLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=2]
@@ -6,33 +6,10 @@
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/blocks/StaticBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/blocks/Fan.tscn" type="PackedScene" id=9]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.16769, 36.0698 )
-
-[sub_resource type="Gradient" id=2]
-
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[ext_resource path="res://src/blocks/Fan.tscn" type="PackedScene" id=7]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="ladder" type="Area2D" parent="."]
-position = Vector2( 800, 1010 )
-scale = Vector2( 3.18377, 2.99729 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ladder"]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="ladder"]
-position = Vector2( 0.0353956, -0.0147113 )
-rotation = 1.5708
-scale = Vector2( 0.0350038, 20.6281 )
-texture = SubResource( 3 )
 
 [node name="DirtBlocks" type="Node2D" parent="."]
 
@@ -219,18 +196,6 @@ position = Vector2( 2464, 1216 )
 [node name="RockBlock4" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 224, 1216 )
 
-[node name="RockBlock13" parent="BedRock" instance=ExtResource( 3 )]
-position = Vector2( 990, 930 )
-
-[node name="RockBlock15" parent="BedRock" instance=ExtResource( 3 )]
-position = Vector2( 930, 930 )
-
-[node name="RockBlock14" parent="BedRock" instance=ExtResource( 3 )]
-position = Vector2( 1050, 930 )
-
-[node name="RockBlock16" parent="BedRock" instance=ExtResource( 3 )]
-position = Vector2( 870, 930 )
-
 [node name="RockBlock7" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 672, 1216 )
 
@@ -327,22 +292,13 @@ position = Vector2( 161.288, 1096 )
 editor/display_folded = true
 
 [node name="StaticBlock" parent="StaticItems" instance=ExtResource( 5 )]
-position = Vector2( 1100, 860 )
+position = Vector2( 832, 864 )
 
 [node name="StaticBlock2" parent="StaticItems" instance=ExtResource( 5 )]
-position = Vector2( 1160, 860 )
+position = Vector2( 896, 864 )
 
 [node name="StaticBlock3" parent="StaticItems" instance=ExtResource( 5 )]
-<<<<<<< HEAD
-position = Vector2( 1400, 790 )
-
-[node name="reset_level" parent="." instance=ExtResource( 7 )]
-
-[node name="gate" parent="reset_level" instance=ExtResource( 8 )]
-position = Vector2( 990, 850 )
-
-[connection signal="body_entered" from="ladder" to="Shaun" method="_on_ladder_body_entered"]
-[connection signal="body_exited" from="ladder" to="Shaun" method="_on_ladder_body_exited"]
+position = Vector2( 960, 864 )
 
 [node name="Cloud" parent="StaticItems" instance=ExtResource( 6 )]
 position = Vector2( 768, 640 )
@@ -350,17 +306,17 @@ scale = Vector2( 3.12397, 4.13127 )
 
 [node name="FloatCombine" type="Node2D" parent="."]
 
-[node name="Fan" parent="." instance=ExtResource( 9 )]
+[node name="Fan" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1152, 576 )
 
-[node name="Fan4" parent="." instance=ExtResource( 9 )]
+[node name="Fan4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2368, 896 )
 rotation = -2.66512
 
-[node name="Fan2" parent="." instance=ExtResource( 9 )]
+[node name="Fan2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1856, 320 )
 rotation = 1.5708
 
-[node name="Fan3" parent="." instance=ExtResource( 9 )]
+[node name="Fan3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1632, 960 )
 rotation = -1.5708
