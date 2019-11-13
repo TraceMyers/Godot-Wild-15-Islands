@@ -29,6 +29,7 @@ func _process(delta):
 				if body_name == "Shaun":
 					var dirt_block = body.get_node("Shovel").get_block_underneath()
 					if dirt_block != null and dirt_block.seeded:
+						body.velocity.y = 0.0
 						if dirt_block in bodies:
 							push = _get_push(dirt_block)
 						else:
@@ -37,7 +38,6 @@ func _process(delta):
 						push = _get_push(body)
 					if not shaun_pushed:	
 						body.position += push
-						body.velocity.y -= push.y
 						shaun_pushed = true
 				elif "Dirt" in body_name:		
 					push = _get_push(body)

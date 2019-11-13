@@ -25,10 +25,6 @@ func _ready():
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 
 func _physics_process(delta):
-	var dirt_block = $Shovel.get_block_underneath()
-	if dirt_block != null and dirt_block.seeded:
-		#reparent
-		pass
 	if velocity.y >= MAX_Y_SPEED :
 		hard_land = true
 	if $DetectFloor.on_floor():
