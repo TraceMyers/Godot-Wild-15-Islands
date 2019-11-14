@@ -11,7 +11,6 @@ const CREATE_BLOCK_MOVE : float = -80.0
 
 var dir = Vector2()
 var climbing = false
-var jumpCount =2
 var hard_land : bool = false
 var velocity := Vector2()
 var move_x_input : bool = false
@@ -28,6 +27,7 @@ func _ready():
 	UserInput.connect("jp_place_block", self, "_UserInput_place_block")
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 	UserInput.connect("ladder_dir",self,"ladder_input")
+
 func _physics_process(delta):
 	if climbing:
 		ladder_move(delta)
