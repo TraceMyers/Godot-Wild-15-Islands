@@ -31,7 +31,6 @@ extents = Vector2( 69.0799, 2.91705 )
 
 [node name="cloud" type="KinematicBody2D" parent="."]
 scale = Vector2( 1, 0.38 )
-collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="cloud"]

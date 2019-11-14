@@ -4,13 +4,15 @@ const MAX_Y_SPEED : float = 6.0
 const GRAVITY : float = 0.3
 const MAX_STACK_SIZE : int = 3
 const BLOCK_HEIGHT : int = 32
+const INIT_FLOAT_SPEED : float = 2.0
 
-var float_speed : float = 2.0
+var float_speed : float = INIT_FLOAT_SPEED
 var velocity := Vector2()
 var seeded : bool = false
 var stack_size : int = 1
 var shaun_y_offset : float = 440
 var fan_push := Vector2.ZERO
+var shaun_collis : bool = false
 
 func _enter_tree():
 	set_physics_process(false)
@@ -27,8 +29,10 @@ func _physics_process(delta):
 		position += velocity + fan_push
 	elif (float_speed > 0 and not $DetectCeiling.float_collision(self, -1)) \
 		or (float_speed < 0 and not $DetectFloor.float_collision(self, 1)):
-		position += Vector2(fan_push.x, fan_push.y - float_speed)
+		if not shaun_collis:
+			position += Vector2(fan_push.x, fan_push.y - float_speed)
 	fan_push = Vector2.ZERO	
+	shaun_collis = false
 
 func plant_seed():
 	$SeedSprite.show()
@@ -50,7 +54,7 @@ func stack_empty():
 
 func add_block_to_stack():
 	print("adding")
-	float_speed -= 2.4
+	float_speed -= INIT_FLOAT_SPEED
 	shaun_y_offset -= BLOCK_HEIGHT
 	$CollisionPolygon2D.scale.y += 1.0
 	$CollisionPolygon2D.position.y -= BLOCK_HEIGHT / 2
@@ -62,7 +66,7 @@ func add_block_to_stack():
 
 func remove_block_from_stack():
 	if stack_size > 1:
-		float_speed += 2.4
+		float_speed += INIT_FLOAT_SPEED
 		shaun_y_offset += BLOCK_HEIGHT
 		$CollisionPolygon2D.scale.y -= 1.0
 		$CollisionPolygon2D.position.y += BLOCK_HEIGHT / 2
