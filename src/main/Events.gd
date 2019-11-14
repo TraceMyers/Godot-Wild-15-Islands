@@ -1,4 +1,5 @@
 extends Node
 
 signal create
-var levels
+
+var levels : Array = []

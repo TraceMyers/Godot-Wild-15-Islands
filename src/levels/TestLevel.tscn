@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://src/levels/TestLevel.gd" type="Script" id=1]
+[ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/blocks/StaticBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/blocks/Fan.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/levels/CloudScroll.gd" type="Script" id=8]
+[ext_resource path="res://src/main/CloudScroll.gd" type="Script" id=8]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )

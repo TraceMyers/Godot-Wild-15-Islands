@@ -137,7 +137,7 @@ func _create_block_and_move(player_pos_change):
 			"create",
 			"dirt_block", 
 			position + $PlaceBlock.position, 
-			"FreeBlocks",
+			"Blocks",
 			true
 		)
 	position += player_pos_change
