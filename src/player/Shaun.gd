@@ -11,7 +11,6 @@ const CREATE_BLOCK_MOVE : float = -80.0
 
 var dir = Vector2()
 var climbing = false
-var jumpCount =2
 var hard_land : bool = false
 var velocity := Vector2()
 var move_x_input : bool = false
@@ -28,11 +27,12 @@ func _ready():
 	UserInput.connect("jp_place_block", self, "_UserInput_place_block")
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 	UserInput.connect("ladder_dir",self,"ladder_input")
+
 func _physics_process(delta):
 	if climbing:
 		ladder_move(delta)
 		return
-	var d_block = $Shovel.get_dirt_block_underneath("cloud")
+	var d_block = $Shovel.get_block_underneath("cloud")
 
 	if velocity.y >= MAX_Y_SPEED :
 		hard_land = true
@@ -87,7 +87,7 @@ func _UserInput_jump_higher():
 func _UserInput_dig():
 	if climbing:
 		return
-	var dirt_block = $Shovel.get_dirt_block_underneath()
+	var dirt_block = $Shovel.get_block_underneath()
 	if dirt_block != null:
 		if $Inventory.full("dirt_block"):
 			#anim
@@ -148,7 +148,7 @@ func _create_block_and_move(player_pos_change):
 func _UserInput_plant():
 	if climbing:
 		return
-	var dirt_block = $Shovel.get_dirt_block_underneath()
+	var dirt_block = $Shovel.get_block_underneath()
 	if dirt_block != null:
 		if dirt_block.seeded and not $Inventory.full("seed"):
 			dirt_block.remove_seed()
