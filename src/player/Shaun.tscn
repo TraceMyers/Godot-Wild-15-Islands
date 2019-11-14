@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/player/Shaun.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/player/playersheet.png" type="Texture" id=2]
 [ext_resource path="res://src/player/Inventory.gd" type="Script" id=3]
 [ext_resource path="res://src/player/Shovel.gd" type="Script" id=4]
-[ext_resource path="res://src/player/DetectFloor.gd" type="Script" id=5]
+[ext_resource path="res://src/player/VertCollis.gd" type="Script" id=5]
 [ext_resource path="res://src/player/Camera.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 resource_name = "Fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "Jump"
 length = 0.1
 step = 0.05
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "Run"
 length = 0.8
 loop = true
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "idle"
 length = 1.2
 loop = true
@@ -73,17 +73,20 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 12, 30 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 2, 1 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 11.5, 1.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 11.5, 1 )
 
 [node name="Shaun" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -100,45 +103,57 @@ region_rect = Rect2( 0, 0, 210, 240 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "idle"
-anims/Fall = SubResource( 7 )
-anims/Jump = SubResource( 6 )
-anims/Run = SubResource( 8 )
-anims/idle = SubResource( 5 )
+anims/Fall = SubResource( 1 )
+anims/Jump = SubResource( 2 )
+anims/Run = SubResource( 3 )
+anims/idle = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 3 )
 
 [node name="Shovel" type="Area2D" parent="."]
 editor/display_folded = true
+visible = false
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shovel"]
 position = Vector2( 0, 34 )
 scale = Vector2( 0.25, 4 )
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 
 [node name="PlaceBlock" type="Area2D" parent="."]
 editor/display_folded = true
+visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock"]
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="DetectFloor" type="Area2D" parent="."]
 editor/display_folded = true
+visible = false
 position = Vector2( 0, 28 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectFloor"]
 position = Vector2( 0, 2 )
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 6 )]
+visible = false
 limit_smoothed = true
 smoothing_speed = 7.5
 drag_margin_top = 0.5
 editor_draw_limits = true
 distance = 80.0
+
+[node name="DetectCeil" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectCeil"]
+position = Vector2( 0, -30 )
+shape = SubResource( 9 )

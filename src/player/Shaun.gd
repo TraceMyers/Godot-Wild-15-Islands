@@ -32,11 +32,12 @@ func _physics_process(delta):
 	if climbing:
 		ladder_move(delta)
 		return
-	var d_block = $Shovel.get_block_underneath("cloud")
-
+	var d_block = $Shovel.get_block_underneath()
+	if $DetectCeil.colliding("up") and d_block != null:
+		d_block.shaun_collis = true
 	if velocity.y >= MAX_Y_SPEED :
 		hard_land = true
-	if $DetectFloor.on_floor():
+	if $DetectFloor.colliding():
 		velocity.y = 0.0
 		if hard_land:
 			hard_land = false
