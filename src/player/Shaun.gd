@@ -7,7 +7,7 @@ const MIN_X_SPEED : float = 8.0
 const INIT_JUMP_SPEED : float = -440.0
 const MAX_Y_SPEED : float = 1000.0
 const GRAVITY : float = 24.0
-const CREATE_BLOCK_MOVE : float = -80.0
+const CREATE_BLOCK_MOVE : float = -66.0
 
 var dir = Vector2()
 var climbing = false
