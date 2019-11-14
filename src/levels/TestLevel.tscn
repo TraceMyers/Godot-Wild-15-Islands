@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/levels/TestLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/blocks/StaticBlock.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/blocks/switch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/blocks/ladder.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=10]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -60,6 +61,10 @@ position = Vector2( 608, 656 )
 
 [node name="BedRock" type="Node2D" parent="."]
 
+[node name="switch" parent="BedRock" instance=ExtResource( 6 )]
+position = Vector2( 56.7859, 1069.96 )
+object = ExtResource( 10 )
+
 [node name="RockBlock" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 32, 1216 )
 
@@ -108,10 +113,6 @@ position = Vector2( 352, 1216 )
 [node name="RockBlock12" parent="BedRock" instance=ExtResource( 3 )]
 position = Vector2( 800, 1216 )
 
-[node name="cloud" parent="BedRock" instance=ExtResource( 6 )]
-position = Vector2( 559.908, 743.504 )
-scale = Vector2( 3.12397, 4.13127 )
-
 [node name="Shaun" parent="." instance=ExtResource( 4 )]
 position = Vector2( 161.288, 1095.63 )
 
@@ -132,5 +133,12 @@ position = Vector2( 1400, 790 )
 
 [node name="gate" parent="reset_level" instance=ExtResource( 8 )]
 position = Vector2( 990, 850 )
+
+[node name="switch_pos" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="switch_pos" groups=[
+"switch_inst",
+]]
+position = Vector2( 550.611, 751.08 )
 [connection signal="body_entered" from="ladder" to="Shaun" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="ladder" to="Shaun" method="_on_ladder_body_exited"]

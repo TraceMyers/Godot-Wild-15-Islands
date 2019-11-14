@@ -7,6 +7,7 @@ signal jp_dig
 signal jp_place_block
 signal jp_plant
 signal ladder_dir
+signal switch
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		emit_signal("ladder_dir",Vector2(-1,0))
@@ -28,4 +29,5 @@ func _physics_process(delta):
 		emit_signal("ladder_dir",Vector2(0,-1))
 	if Input.is_action_pressed("ui_accept"):
 		emit_signal("ladder_dir",Vector2(0,1))
-
+	if Input.is_action_just_pressed("enter"):
+		emit_signal("switch")
