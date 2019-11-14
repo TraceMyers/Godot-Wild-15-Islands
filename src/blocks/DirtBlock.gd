@@ -74,6 +74,7 @@ func remove_block_from_stack():
 	else:
 		queue_free()	
 
+
 func _on_DetectCeiling_body_entered(body):
 	if "cloud" in body.name:
 		body.get_node("CollisionPolygon2D").call_deferred("set_disabled",true)
