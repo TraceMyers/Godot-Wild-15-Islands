@@ -27,12 +27,12 @@ script = ExtResource( 1 )
 
 [node name="StackSize2" type="Sprite" parent="SpriteStack"]
 visible = false
-position = Vector2( 0, -32 )
+position = Vector2( 0, 32 )
 texture = ExtResource( 2 )
 
 [node name="StackSize3" type="Sprite" parent="SpriteStack"]
 visible = false
-position = Vector2( 0, -64 )
+position = Vector2( 0, 64 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -47,7 +47,6 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="SeedBalloon" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="SeedBalloon"]
 position = Vector2( 0, -46 )
