@@ -32,7 +32,12 @@ func _physics_process(delta):
 		if hard_land:
 			hard_land = false
 			hard_land()
+		elif abs(velocity.x) <= 0.1:
+			$Sprite/AnimationPlayer.play("idle")	
+		else:
+			$Sprite/AnimationPlayer.play("Run")	
 		if jump_input:
+			$Sprite/AnimationPlayer.play("Jump")
 			velocity.y = INIT_JUMP_SPEED
 		if not move_x_input:
 			velocity.x = int(velocity.x * DECELERATION)
@@ -43,6 +48,8 @@ func _physics_process(delta):
 			velocity.y += GRAVITY * 0.5 
 		elif not is_on_floor():	
 			velocity.y += GRAVITY 
+	if velocity.y > 0.0:
+		$Sprite/AnimationPlayer.play("Fall")		
 	move_and_slide_with_snap(velocity, Vector2(0.0, -1.0))
 	move_x_input = false	
 	jump_input = false
@@ -50,6 +57,10 @@ func _physics_process(delta):
 
 func _UserInput_move_x(dir,facing):
 	facing_right = facing
+	if dir == 1:
+		$Sprite.set_flip_h(true)
+	else:
+		$Sprite.set_flip_h(false)	
 	if is_on_wall():
 		velocity.x /= 2.0
 	if abs(velocity.x) < MAX_X_SPEED or sign(velocity.x) != dir:

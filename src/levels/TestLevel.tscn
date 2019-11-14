@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/levels/TestLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=2]
@@ -7,11 +7,13 @@
 [ext_resource path="res://src/blocks/StaticBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/blocks/Fan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/levels/CloudScroll.gd" type="Script" id=8]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="DirtBlocks" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 2 )]
 position = Vector2( 32, 1152 )
@@ -284,7 +286,7 @@ position = Vector2( 2336, 1216 )
 position = Vector2( 2848, 1216 )
 
 [node name="Shaun" parent="." instance=ExtResource( 4 )]
-position = Vector2( 161.288, 1096 )
+position = Vector2( 136, 1052 )
 
 [node name="FreeBlocks" type="Node2D" parent="."]
 
@@ -304,8 +306,6 @@ position = Vector2( 960, 864 )
 position = Vector2( 768, 640 )
 scale = Vector2( 3.12397, 4.13127 )
 
-[node name="FloatCombine" type="Node2D" parent="."]
-
 [node name="Fan" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1152, 576 )
 
@@ -320,3 +320,6 @@ rotation = 1.5708
 [node name="Fan3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1632, 960 )
 rotation = -1.5708
+
+[node name="CloudScroll" type="Node2D" parent="."]
+script = ExtResource( 8 )

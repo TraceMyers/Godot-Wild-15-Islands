@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/player/Camera.gd" type="Script" id=1]
 [ext_resource path="res://src/player/camera_shake.gd" type="Script" id=2]
+[ext_resource path="res://assets/background/skycolor_1.png" type="Texture" id=3]
 
 [node name="Camera2D" type="Camera2D"]
 current = true
@@ -18,5 +19,11 @@ script = ExtResource( 2 )
 
 [node name="duration" type="Timer" parent="shake"]
 one_shot = true
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -10
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1400, 800 )
 [connection signal="timeout" from="shake/frequency" to="shake" method="_on_frequency_timeout"]
 [connection signal="timeout" from="shake/duration" to="shake" method="_on_duration_timeout"]
