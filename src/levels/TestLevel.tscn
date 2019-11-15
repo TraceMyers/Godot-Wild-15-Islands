@@ -1,322 +1,329 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
-[ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/blocks/StaticBlock.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/blocks/Fan.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/main/CloudScroll.gd" type="Script" id=8]
+[ext_resource path="res://src/levels/Settings.gd" type="Script" id=2]
+[ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/blocks/StaticBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/blocks/Fan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/main/CloudScroll.gd" type="Script" id=9]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="DirtBlocks" type="Node2D" parent="."]
+[node name="Settings" type="Node" parent="."]
+script = ExtResource( 2 )
 
-[node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlocks" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 32, 1152 )
 
-[node name="DirtBlock9" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock9" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 480, 1152 )
 
-[node name="DirtBlock10" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock10" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1056, 1152 )
 
-[node name="DirtBlock16" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock16" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1824, 1152 )
 
-[node name="DirtBlock14" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock14" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 288, 1152 )
 
-[node name="DirtBlock19" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock19" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 736, 1152 )
 
-[node name="DirtBlock20" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock20" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1312, 1152 )
 
-[node name="DirtBlock21" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock21" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2080, 1152 )
 
-[node name="DirtBlock40" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock40" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2592, 1152 )
 
-[node name="DirtBlock15" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock15" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 224, 1088 )
 
-[node name="DirtBlock2" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock2" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 224, 1152 )
 
-[node name="DirtBlock7" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock7" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 672, 1152 )
 
-[node name="DirtBlock11" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock11" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1248, 1152 )
 
-[node name="DirtBlock17" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock17" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2016, 1152 )
 
-[node name="DirtBlock18" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock18" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2528, 1152 )
 
-[node name="DirtBlock3" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock3" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 96, 1152 )
 
-[node name="DirtBlock8" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock8" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 544, 1152 )
 
-[node name="DirtBlock12" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock12" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1120, 1152 )
 
-[node name="DirtBlock13" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock13" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1888, 1152 )
 
-[node name="DirtBlock44" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock44" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2400, 1152 )
 
-[node name="DirtBlock4" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock4" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 352, 1152 )
 
-[node name="DirtBlock22" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock22" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 800, 1152 )
 
-[node name="DirtBlock29" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock29" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1376, 1152 )
 
-[node name="DirtBlock33" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock33" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2144, 1152 )
 
-[node name="DirtBlock45" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock45" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2656, 1152 )
 
-[node name="DirtBlock24" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock24" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 864, 1152 )
 
-[node name="DirtBlock35" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock35" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1632, 1152 )
 
-[node name="DirtBlock27" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock27" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1440, 1152 )
 
-[node name="DirtBlock38" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock38" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2208, 1152 )
 
-[node name="DirtBlock46" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock46" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2720, 1152 )
 
-[node name="DirtBlock25" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock25" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 928, 1152 )
 
-[node name="DirtBlock36" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock36" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1696, 1152 )
 
-[node name="DirtBlock28" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock28" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1504, 1152 )
 
-[node name="DirtBlock39" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock39" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2272, 1152 )
 
-[node name="DirtBlock41" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock41" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2784, 1152 )
 
-[node name="DirtBlock26" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock26" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 992, 1152 )
 
-[node name="DirtBlock37" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock37" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1760, 1152 )
 
-[node name="DirtBlock31" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock31" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1568, 1152 )
 
-[node name="DirtBlock34" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock34" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2336, 1152 )
 
-[node name="DirtBlock42" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock42" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2848, 1152 )
 
-[node name="DirtBlock5" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock5" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 160, 1152 )
 
-[node name="DirtBlock23" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock23" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 608, 1152 )
 
-[node name="DirtBlock30" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock30" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1184, 1152 )
 
-[node name="DirtBlock32" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock32" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1952, 1152 )
 
-[node name="DirtBlock43" parent="DirtBlocks" instance=ExtResource( 2 )]
+[node name="DirtBlock43" parent="DirtBlocks" instance=ExtResource( 3 )]
 position = Vector2( 2464, 1152 )
 
 [node name="BedRock" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="RockBlock" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 32, 1216 )
 
-[node name="RockBlock11" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock11" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 480, 1216 )
 
-[node name="RockBlock23" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock23" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1056, 1216 )
 
-[node name="RockBlock36" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock36" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1824, 1216 )
 
-[node name="RockBlock2" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock2" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 96, 1216 )
 
-[node name="RockBlock8" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock8" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 544, 1216 )
 
-[node name="RockBlock24" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock24" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1120, 1216 )
 
-[node name="RockBlock28" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock28" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1888, 1216 )
 
-[node name="RockBlock42" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock42" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2400, 1216 )
 
-[node name="RockBlock3" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock3" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 160, 1216 )
 
-[node name="RockBlock9" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock9" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 608, 1216 )
 
-[node name="RockBlock19" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock19" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1184, 1216 )
 
-[node name="RockBlock34" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock34" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1952, 1216 )
 
-[node name="RockBlock43" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock43" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2464, 1216 )
 
-[node name="RockBlock4" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock4" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 224, 1216 )
 
-[node name="RockBlock7" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock7" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 672, 1216 )
 
-[node name="RockBlock21" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock21" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1248, 1216 )
 
-[node name="RockBlock32" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock32" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2016, 1216 )
 
-[node name="RockBlock44" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock44" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2528, 1216 )
 
-[node name="RockBlock5" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock5" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 288, 1216 )
 
-[node name="RockBlock10" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock10" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 736, 1216 )
 
-[node name="RockBlock22" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock22" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1312, 1216 )
 
-[node name="RockBlock29" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock29" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2080, 1216 )
 
-[node name="RockBlock39" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock39" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2592, 1216 )
 
-[node name="RockBlock6" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock6" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 352, 1216 )
 
-[node name="RockBlock12" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock12" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 800, 1216 )
 
-[node name="RockBlock17" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock17" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1376, 1216 )
 
-[node name="RockBlock31" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock31" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2144, 1216 )
 
-[node name="RockBlock40" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock40" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2656, 1216 )
 
-[node name="RockBlock13" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock13" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 864, 1216 )
 
-[node name="RockBlock25" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock25" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1632, 1216 )
 
-[node name="RockBlock16" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock16" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1440, 1216 )
 
-[node name="RockBlock30" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock30" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2208, 1216 )
 
-[node name="RockBlock37" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock37" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2720, 1216 )
 
-[node name="RockBlock14" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock14" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 928, 1216 )
 
-[node name="RockBlock26" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock26" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1696, 1216 )
 
-[node name="RockBlock18" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock18" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1504, 1216 )
 
-[node name="RockBlock35" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock35" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2272, 1216 )
 
-[node name="RockBlock41" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock41" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2784, 1216 )
 
-[node name="RockBlock15" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock15" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 992, 1216 )
 
-[node name="RockBlock27" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock27" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1760, 1216 )
 
-[node name="RockBlock20" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock20" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 1568, 1216 )
 
-[node name="RockBlock33" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock33" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2336, 1216 )
 
-[node name="RockBlock38" parent="BedRock" instance=ExtResource( 3 )]
+[node name="RockBlock38" parent="BedRock" instance=ExtResource( 4 )]
 position = Vector2( 2848, 1216 )
 
-[node name="Shaun" parent="." instance=ExtResource( 4 )]
+[node name="Shaun" parent="." instance=ExtResource( 5 )]
 position = Vector2( 136, 1052 )
 
 [node name="FreeBlocks" type="Node2D" parent="."]
 
 [node name="StaticItems" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="StaticBlock" parent="StaticItems" instance=ExtResource( 5 )]
+[node name="StaticBlock" parent="StaticItems" instance=ExtResource( 6 )]
 position = Vector2( 832, 864 )
 
-[node name="StaticBlock2" parent="StaticItems" instance=ExtResource( 5 )]
+[node name="StaticBlock2" parent="StaticItems" instance=ExtResource( 6 )]
 position = Vector2( 896, 864 )
 
-[node name="StaticBlock3" parent="StaticItems" instance=ExtResource( 5 )]
+[node name="StaticBlock3" parent="StaticItems" instance=ExtResource( 6 )]
 position = Vector2( 960, 864 )
 
-[node name="Cloud" parent="StaticItems" instance=ExtResource( 6 )]
+[node name="Cloud" parent="StaticItems" instance=ExtResource( 7 )]
 position = Vector2( 768, 640 )
 scale = Vector2( 3.12397, 4.13127 )
 
-[node name="Fan" parent="." instance=ExtResource( 7 )]
+[node name="Fan" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1152, 576 )
 
-[node name="Fan4" parent="." instance=ExtResource( 7 )]
+[node name="Fan4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2368, 896 )
 rotation = -2.66512
 
-[node name="Fan2" parent="." instance=ExtResource( 7 )]
+[node name="Fan2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1856, 320 )
 rotation = 1.5708
 
-[node name="Fan3" parent="." instance=ExtResource( 7 )]
+[node name="Fan3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1632, 960 )
 rotation = -1.5708
 
 [node name="CloudScroll" type="Node2D" parent="."]
-script = ExtResource( 8 )
+script = ExtResource( 9 )

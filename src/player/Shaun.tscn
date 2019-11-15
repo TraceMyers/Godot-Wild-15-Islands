@@ -80,7 +80,7 @@ extents = Vector2( 12, 30 )
 extents = Vector2( 2, 1 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 32, 32 )
+extents = Vector2( 18, 17 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 11.5, 1.5 )
@@ -125,11 +125,10 @@ scale = Vector2( 0.25, 4 )
 shape = SubResource( 6 )
 
 [node name="PlaceBlock" type="Area2D" parent="."]
-editor/display_folded = true
-visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock"]
+position = Vector2( 0.5, 21 )
 shape = SubResource( 7 )
 
 [node name="DetectFloor" type="Area2D" parent="."]
