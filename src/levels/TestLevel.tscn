@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
-[ext_resource path="res://src/levels/Settings.gd" type="Script" id=2]
+[ext_resource path="res://src/levels/settings/Settings1.gd" type="Script" id=2]
 [ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=5]
