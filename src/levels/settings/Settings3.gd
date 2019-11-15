@@ -1,6 +1,6 @@
 extends Node
 
-const boundary_bottom_right = Vector2(3000.0, 4000.0)
+const boundary_bottom_right = Vector2(3400.0, 4000.0)
 const start_seeds : int = 0
 
 func _ready():
