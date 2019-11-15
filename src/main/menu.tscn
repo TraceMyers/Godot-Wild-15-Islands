@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ -845.172 ]
+"_edit_vertical_guides_": [ -845.172, 944.349 ]
 }
 
 [node name="Panel" type="Panel" parent="."]
@@ -48,23 +48,57 @@ text = "quit"
 visible = false
 margin_left = 80.0
 margin_top = 80.0
-margin_right = 1520.0
-margin_bottom = 1040.0
+margin_right = 1190.0
+margin_bottom = 1090.0
 custom_constants/separation = 110
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer2"]
-margin_top = 160.0
-margin_right = 1440.0
-margin_bottom = 857.99
-rect_min_size = Vector2( 0, 697.99 )
-custom_constants/vseparation = 150
-custom_constants/hseparation = 230
-columns = 6
+margin_right = 1273.0
+margin_bottom = 640.0
+rect_min_size = Vector2( 0, 640 )
+custom_constants/vseparation = 59
+custom_constants/hseparation = 137
+columns = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="box2" type="HBoxContainer" parent="VBoxContainer2"]
+margin_top = 750.0
+margin_right = 1273.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 26.99, 0 )
+custom_constants/separation = 510
+
+[node name="box" type="HBoxContainer" parent="VBoxContainer2/box2"]
+margin_right = 209.0
+margin_bottom = 50.0
+custom_constants/separation = 110
+
+[node name="pre" type="Button" parent="VBoxContainer2/box2/box"]
+margin_right = 59.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "previos"
+
+[node name="next" type="Button" parent="VBoxContainer2/box2/box"]
+margin_left = 169.0
+margin_right = 209.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "next"
+
+[node name="Button3" type="Button" parent="VBoxContainer2/box2"]
+margin_left = 719.0
+margin_right = 928.62
+margin_bottom = 50.0
+rect_min_size = Vector2( 209.62, 50 )
+text = "back"
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/box2/box/pre" to="." method="_on_pre_pressed"]
+[connection signal="pressed" from="VBoxContainer2/box2/box/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="VBoxContainer2/box2/Button3" to="." method="_on_Button3_pressed"]
