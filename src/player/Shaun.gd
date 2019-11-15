@@ -33,8 +33,12 @@ func _physics_process(delta):
 		ladder_move(delta)
 		return
 	var d_block = $Shovel.get_block_underneath()
-	if $DetectCeil.colliding("up") and d_block != null:
-		d_block.shaun_collis = true
+	if d_block != null:
+		if $DetectCeil.colliding("up"):
+			d_block.shaun_collis = true
+		if d_block.seeded:
+			position += d_block.rand_push
+			position.y -= d_block.float_speed
 	if velocity.y >= MAX_Y_SPEED :
 		hard_land = true
 	if $DetectFloor.colliding():
@@ -137,7 +141,7 @@ func _create_block_and_move(player_pos_change):
 			"create",
 			"dirt_block", 
 			position + $PlaceBlock.position, 
-			"Blocks",
+			"DirtBlocks",
 			true
 		)
 	position += player_pos_change

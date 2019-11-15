@@ -13,11 +13,21 @@ var stack_size : int = 1
 var shaun_y_offset : float = 440
 var fan_push := Vector2.ZERO
 var shaun_collis : bool = false
+var rand_push : Vector2
+var rand_push_timer : Timer
+var rand_push_away : bool = false
 
 func _enter_tree():
 	set_physics_process(false)
 	$SeedSprite.hide()
 	$SeedBalloon.hide()
+
+func _ready():
+	rand_push_timer = Timer.new()
+	rand_push_timer.connect("timeout", self, "_generate_new_rand_push")
+	add_child(rand_push_timer)
+	rand_push_timer.set_wait_time(1.5)
+	rand_push_timer.start()
 
 func _physics_process(delta):
 	if not seeded:
@@ -30,11 +40,23 @@ func _physics_process(delta):
 	elif (float_speed > 0 and not $DetectCeiling.float_collision(self, -1)) \
 		or (float_speed < 0 and not $DetectFloor.float_collision(self, 1)):
 		if not shaun_collis:
-			position += Vector2(fan_push.x, fan_push.y - float_speed) 
+			position += Vector2(fan_push.x, fan_push.y - float_speed) + rand_push
 	elif float_speed == 0 and not $DetectCeiling.float_collision(self, -1) and not $DetectFloor.float_collision(self, 1):
-		position += Vector2(fan_push.x, fan_push.y) 
+		position += Vector2(fan_push.x, fan_push.y) + rand_push
+	else:
+		rand_push = Vector2.ZERO	
 	fan_push = Vector2.ZERO	
 	shaun_collis = false
+
+func _generate_new_rand_push():
+	if rand_push_away:
+		rand_push = Vector2((randf() - 0.5) / 4, (randf() - 0.5) / 4)
+		rand_push_away = false
+	else:
+		rand_push *= -1
+		rand_push_away = true
+	rand_push_timer.start()	
+
 
 func plant_seed():
 	$SeedSprite.show()

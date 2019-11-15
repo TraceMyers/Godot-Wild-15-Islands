@@ -133,8 +133,6 @@ position = Vector2( 0, -8 )
 shape = SubResource( 7 )
 
 [node name="DetectFloor" type="Area2D" parent="."]
-editor/display_folded = true
-visible = false
 position = Vector2( 0, 28 )
 script = ExtResource( 5 )
 

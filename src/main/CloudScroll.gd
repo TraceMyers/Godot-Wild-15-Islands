@@ -9,12 +9,12 @@ var reset : bool = false
 var total_size_x : float
 
 func _ready():
-	var lvl_bot_right = get_parent().boundary_bottom_right
+	var lvl_bot_right = get_parent().get_node("Settings").boundary_bottom_right
 	var tile_ct := Vector2(
 		ceil(lvl_bot_right.x / bg_size.x) + 1.0,
 		ceil(lvl_bot_right.y / bg_size.y)
 	)
-	var start_tiling_at := Vector2(-bg_size.x, 0.0)
+	var start_tiling_at := Vector2.ZERO
 	for i in range(tile_ct.x):
 		tile_matrix.append([])
 		for j in range(tile_ct.y):
@@ -28,9 +28,9 @@ func _ready():
 	total_size_x = tile_matrix.size() * bg_size.x		
 
 func _process(delta):
-	var new_scroll_x = position.x + scroll_speed * delta
-	if new_scroll_x >= bg_size.x:
-		position.x = bg_size.x - new_scroll_x
+	var new_scroll_x = position.x - scroll_speed * delta
+	if new_scroll_x <= -bg_size.x:
+		position.x = -bg_size.x
 		reset = true
 	elif reset:
 		position.x = 0.0

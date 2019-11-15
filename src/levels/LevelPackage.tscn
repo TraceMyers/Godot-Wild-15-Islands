@@ -20,17 +20,22 @@ script = ExtResource( 2 )
 [node name="Shaun" parent="." instance=ExtResource( 3 )]
 position = Vector2( 500, 670 )
 
-[node name="Blocks" type="Node2D" parent="."]
+[node name="StaticBlocks" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="RockBlock" parent="Blocks" instance=ExtResource( 4 )]
+[node name="RockBlock" parent="StaticBlocks" instance=ExtResource( 4 )]
 position = Vector2( 502, 828 )
 
-[node name="DirtBlock" parent="Blocks" instance=ExtResource( 5 )]
+[node name="DirtBlocks" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 5 )]
 position = Vector2( 502, 764 )
 
 [node name="Fans" type="Node2D" parent="."]
 
 [node name="Interactables" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="gate" parent="Interactables" instance=ExtResource( 6 )]
 position = Vector2( 1064, 424 )
