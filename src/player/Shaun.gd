@@ -59,7 +59,7 @@ func _physics_process(delta):
 				velocity.x = 0.0
 	elif velocity.y < MAX_Y_SPEED:		
 		if jump_higher:
-			velocity.y += GRAVITY * 0.5 
+			velocity.y += GRAVITY * 0.47 
 		elif not is_on_floor():	
 			velocity.y += GRAVITY 
 	if velocity.y > 0.0:

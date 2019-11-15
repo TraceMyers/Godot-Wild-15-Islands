@@ -3,12 +3,12 @@
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/levels/settings/Settings1.gd" type="Script" id=2]
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/sprites/seed/seed_balloon.png" type="Texture" id=6]
-[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprites/seed/seed_balloon.png" type="Texture" id=5]
+[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=9]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,161 +19,31 @@ script = ExtResource( 2 )
 [node name="Shaun" parent="." instance=ExtResource( 3 )]
 position = Vector2( 384, 730 )
 
-[node name="StaticBlocks" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="RockBlock" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 512, 832 )
-
-[node name="RockBlock19" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1216, 832 )
-
-[node name="RockBlock10" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 544, 896 )
-
-[node name="RockBlock21" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1248, 896 )
-
-[node name="RockBlock32" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1216, 960 )
-
-[node name="RockBlock5" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 768, 832 )
-
-[node name="RockBlock27" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1472, 832 )
-
-[node name="RockBlock13" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 800, 896 )
-
-[node name="RockBlock41" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 736, 1024 )
-
-[node name="RockBlock37" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 768, 960 )
-
-[node name="RockBlock17" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1504, 896 )
-
-[node name="RockBlock31" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1472, 960 )
-
-[node name="RockBlock44" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1376, 1024 )
-
-[node name="RockBlock3" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 384, 832 )
-
-[node name="RockBlock24" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1088, 832 )
-
-[node name="RockBlock11" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 416, 896 )
-
-[node name="RockBlock23" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1120, 896 )
-
-[node name="RockBlock6" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 640, 832 )
-
-[node name="RockBlock12" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1344, 832 )
-
-[node name="RockBlock9" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 672, 896 )
-
-[node name="RockBlock43" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 608, 1024 )
-
-[node name="RockBlock39" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 640, 960 )
-
-[node name="RockBlock22" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1376, 896 )
-
-[node name="RockBlock35" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1344, 960 )
-
-[node name="RockBlock2" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 576, 832 )
-
-[node name="RockBlock28" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1280, 832 )
-
-[node name="RockBlock14" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 608, 896 )
-
-[node name="RockBlock40" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 576, 960 )
-
-[node name="RockBlock25" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1312, 896 )
-
-[node name="RockBlock36" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1280, 960 )
-
-[node name="RockBlock7" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 832, 832 )
-
-[node name="RockBlock26" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1536, 832 )
-
-[node name="RockBlock4" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 448, 832 )
-
-[node name="RockBlock29" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1152, 832 )
-
-[node name="RockBlock15" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 480, 896 )
-
-[node name="RockBlock18" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1184, 896 )
-
-[node name="RockBlock33" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1152, 960 )
-
-[node name="RockBlock8" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 704, 832 )
-
-[node name="RockBlock30" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1408, 832 )
-
-[node name="RockBlock16" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 736, 896 )
-
-[node name="RockBlock42" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 672, 1024 )
-
-[node name="RockBlock38" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 704, 960 )
-
-[node name="RockBlock20" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1440, 896 )
-
-[node name="RockBlock34" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1408, 960 )
-
-[node name="RockBlock45" parent="StaticBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1312, 1024 )
-
 [node name="DirtBlocks" type="Node2D" parent="."]
 
 [node name="Fans" type="Node2D" parent="."]
 
 [node name="Interactables" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="gate" parent="Interactables" instance=ExtResource( 5 )]
-position = Vector2( 1472, 714 )
+[node name="gate" parent="Interactables" instance=ExtResource( 4 )]
+position = Vector2( 2576, 790 )
 
 [node name="Sprite" type="Sprite" parent="Interactables/gate"]
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
-[node name="CloudScroll" parent="." instance=ExtResource( 7 )]
+[node name="CloudScroll" parent="." instance=ExtResource( 6 )]
 
-[node name="fade" parent="." instance=ExtResource( 8 )]
+[node name="fade" parent="." instance=ExtResource( 7 )]
 visible = false
 
-[node name="reset_level" parent="." instance=ExtResource( 9 )]
+[node name="reset_level" parent="." instance=ExtResource( 8 )]
 visible = false
+
+[node name="rocks" type="Node2D" parent="."]
+
+[node name="rock_map" parent="rocks" instance=ExtResource( 9 )]
+tile_data = PoolIntArray( 786446, 0, 0, 786447, 2, 0, 851973, 0, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 4, 0, 851983, 4, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 2, 0, 917509, 6, 0, 917510, 7, 0, 917511, 7, 0, 917512, 4, 0, 917513, 4, 0, 917514, 4, 0, 917515, 4, 0, 917516, 4, 0, 917517, 4, 0, 917518, 4, 0, 917519, 4, 0, 917520, 4, 0, 917521, 4, 0, 917522, 4, 0, 917523, 4, 0, 917524, 4, 0, 917525, 4, 0, 917526, 1, 0, 917527, 1, 0, 917528, 1, 0, 917529, 1, 0, 917530, 1, 0, 917531, 1, 0, 917532, 1, 0, 917533, 2, 0, 983048, 3, 0, 983049, 4, 0, 983050, 4, 0, 983051, 4, 0, 983052, 4, 0, 983053, 4, 0, 983054, 4, 0, 983055, 4, 0, 983056, 7, 0, 983057, 7, 0, 983058, 7, 0, 983059, 7, 0, 983060, 7, 0, 983061, 7, 0, 983062, 7, 0, 983063, 4, 0, 983064, 4, 0, 983065, 4, 0, 983066, 4, 0, 983067, 4, 0, 983068, 4, 0, 983069, 5, 0, 1048584, 6, 0, 1048585, 7, 0, 1048586, 7, 0, 1048587, 7, 0, 1048588, 7, 0, 1048589, 7, 0, 1048590, 7, 0, 1048591, 8, 0, 1048599, 6, 0, 1048600, 7, 0, 1048601, 7, 0, 1048602, 7, 0, 1048603, 7, 0, 1048604, 7, 0, 1048605, 8, 0 )
+
+[node name="rock_map2" parent="rocks" instance=ExtResource( 9 )]
+position = Vector2( -102, 0 )
+tile_data = PoolIntArray( 917539, 0, 0, 917540, 1, 0, 917541, 1, 0, 917542, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 2, 0, 983075, 6, 0, 983076, 4, 0, 983077, 4, 0, 983078, 4, 0, 983079, 4, 0, 983080, 4, 0, 983081, 4, 0, 983082, 8, 0, 1048612, 6, 0, 1048613, 4, 0, 1048614, 4, 0, 1048615, 4, 0, 1048616, 4, 0, 1048617, 8, 0, 1114149, 6, 0, 1114150, 7, 0, 1114151, 7, 0, 1114152, 8, 0 )
