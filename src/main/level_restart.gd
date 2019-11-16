@@ -3,8 +3,8 @@ extends Node2D
 func _ready():
 	$Area2D/CollisionShape2D.shape.extents.x =OS.window_size.x
 	$Area2D/CollisionShape2D2.shape.extents.x =OS.window_size.x
-	$Area2D/CollisionShape2D.position.y = OS.window_size.y+300 
-	$Area2D/CollisionShape2D2.position.y =-300
+	$Area2D/CollisionShape2D.position.y = get_parent().get_node("Settings").boundary_bottom_right.y
+	$Area2D/CollisionShape2D2.position.y =0
 	$Area2D/CollisionShape2D.position.x = OS.window_size.x/2
 	$Area2D/CollisionShape2D2.position.x =OS.window_size.x/2
 
