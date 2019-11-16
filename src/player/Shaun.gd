@@ -28,9 +28,9 @@ func _ready():
 	UserInput.connect("jp_place_block", self, "_UserInput_place_block")
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 	UserInput.connect("ladder_dir",self,"ladder_input")
+	Events.connect("seed_pickup", self, "_Events_seed_pickup")
 
 func _physics_process(delta):
-	Events.connect("seed_pickup", self, "_Events_seed_pickup")
 	if climbing:
 		ladder_move(delta)
 		return

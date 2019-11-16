@@ -9,7 +9,7 @@
 [ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/tilemaps/rock_map.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/seed/Seed.tscn" type="PackedScene" id=11]
 
 [node name="Level4" type="Node2D"]
