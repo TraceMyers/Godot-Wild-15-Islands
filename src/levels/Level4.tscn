@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/levels/settings/Settings4.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/seed/Seed.tscn" type="PackedScene" id=11]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,11 +24,12 @@ position = Vector2( 704, 352 )
 [node name="DirtBlocks" type="Node2D" parent="."]
 
 [node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1252, 736 )
+position = Vector2( 1226, 736 )
 
 [node name="Fans" type="Node2D" parent="."]
 
 [node name="Interactables" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="gate" parent="Interactables" instance=ExtResource( 5 )]
 position = Vector2( 174, 572 )
@@ -44,8 +46,12 @@ visible = false
 visible = false
 
 [node name="Rocks" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="rock_map" parent="Rocks" instance=ExtResource( 10 )]
 tile_data = PoolIntArray( 196615, 0, 0, 196616, 1, 0, 196617, 2, 0, 262151, 3, 0, 262152, 4, 0, 262153, 5, 0, 327687, 3, 0, 327688, 4, 0, 327689, 5, 0, 393223, 3, 0, 393224, 4, 0, 393225, 5, 0, 458759, 3, 0, 458760, 4, 0, 458761, 16, 0, 458762, 1, 0, 458763, 1, 0, 458764, 2, 0, 458772, 0, 0, 458773, 2, 0, 524295, 6, 0, 524296, 7, 0, 524297, 7, 0, 524298, 7, 0, 524299, 10, 0, 524300, 16, 0, 524301, 1, 0, 524302, 1, 0, 524303, 2, 0, 524308, 6, 0, 524309, 8, 0, 589835, 6, 0, 589836, 7, 0, 589837, 7, 0, 589838, 7, 0, 589839, 8, 0, 655361, 0, 0, 655362, 1, 0, 655363, 2, 0, 655391, 0, 0, 655392, 2, 0, 720897, 3, 0, 720898, 4, 0, 720899, 5, 0, 720917, 0, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 1, 0, 720925, 1, 0, 720926, 1, 0, 720927, 17, 0, 720928, 5, 0, 786433, 3, 0, 786434, 4, 0, 786435, 5, 0, 786451, 13, 0, 786452, 14, 0, 786453, 17, 0, 786454, 4, 0, 786455, 4, 0, 786456, 4, 0, 786457, 4, 0, 786458, 4, 0, 786459, 4, 0, 786460, 4, 0, 786461, 4, 0, 786462, 4, 0, 786463, 4, 0, 786464, 5, 0, 851969, 6, 0, 851970, 10, 0, 851971, 11, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 2, 0, 851986, 0, 0, 851987, 12, 0, 851988, 4, 0, 851989, 4, 0, 851990, 4, 0, 851991, 4, 0, 851992, 4, 0, 851993, 4, 0, 851994, 9, 0, 851995, 7, 0, 851996, 7, 0, 851997, 7, 0, 851998, 7, 0, 851999, 7, 0, 852000, 8, 0, 917506, 6, 0, 917507, 7, 0, 917508, 7, 0, 917509, 7, 0, 917510, 7, 0, 917511, 7, 0, 917512, 8, 0, 917521, 0, 0, 917522, 12, 0, 917523, 4, 0, 917524, 4, 0, 917525, 4, 0, 917526, 4, 0, 917527, 4, 0, 917528, 4, 0, 917529, 9, 0, 917530, 8, 0, 983056, 0, 0, 983057, 12, 0, 983058, 4, 0, 983059, 4, 0, 983060, 4, 0, 983061, 4, 0, 983062, 4, 0, 983063, 4, 0, 983064, 9, 0, 983065, 8, 0, 1048589, 0, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 12, 0, 1048593, 4, 0, 1048594, 4, 0, 1048595, 9, 0, 1048596, 7, 0, 1048597, 7, 0, 1048598, 7, 0, 1048599, 7, 0, 1048600, 8, 0, 1114121, 0, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 17, 0, 1114126, 9, 0, 1114127, 7, 0, 1114128, 7, 0, 1114129, 7, 0, 1114130, 7, 0, 1114131, 8, 0, 1179657, 6, 0, 1179658, 7, 0, 1179659, 7, 0, 1179660, 7, 0, 1179661, 7, 0, 1179662, 8, 0 )
 
 [node name="Statics" type="Node2D" parent="."]
+
+[node name="Seed" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2048, 608 )

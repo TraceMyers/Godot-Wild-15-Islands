@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/player/Shaun.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/player/playersheet.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://src/player/Shovel.gd" type="Script" id=4]
 [ext_resource path="res://src/player/VertCollis.gd" type="Script" id=5]
 [ext_resource path="res://src/player/Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/player/Visualinventory.gd" type="Script" id=7]
+[ext_resource path="res://assets/sprites/blocks/dirt_block_grass.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/seed/seed.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fall"
@@ -111,6 +114,7 @@ anims/Run = SubResource( 3 )
 anims/idle = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 5 )
 
 [node name="Inventory" type="Node" parent="."]
@@ -127,6 +131,7 @@ scale = Vector2( 0.25, 4 )
 shape = SubResource( 6 )
 
 [node name="PlaceBlock" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock"]
@@ -156,3 +161,33 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectCeil"]
 position = Vector2( 0, -30 )
 shape = SubResource( 9 )
+
+[node name="Visualinventory" type="Node2D" parent="."]
+position = Vector2( 20, -20.5 )
+z_index = -2
+script = ExtResource( 7 )
+
+[node name="Block1" type="Sprite" parent="Visualinventory"]
+visible = false
+position = Vector2( 0, 2 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 8 )
+
+[node name="Block2" type="Sprite" parent="Visualinventory"]
+visible = false
+position = Vector2( -3.5, -2.5 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 8 )
+
+[node name="Block3" type="Sprite" parent="Visualinventory"]
+visible = false
+position = Vector2( 4, -2.5 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 8 )
+
+[node name="Seed" type="Sprite" parent="Visualinventory"]
+visible = false
+position = Vector2( -2.88, 10 )
+scale = Vector2( 0.18, 0.18 )
+z_index = 2
+texture = ExtResource( 9 )

@@ -10,6 +10,7 @@ const GRAVITY : float = 24.0
 const CREATE_BLOCK_MOVE : float = -66.0
 
 var dir = Vector2()
+var dir_x : float = -1.0
 var climbing = false
 var hard_land : bool = false
 var velocity := Vector2()
@@ -29,6 +30,7 @@ func _ready():
 	UserInput.connect("ladder_dir",self,"ladder_input")
 
 func _physics_process(delta):
+	Events.connect("seed_pickup", self, "_Events_seed_pickup")
 	if climbing:
 		ladder_move(delta)
 		return
@@ -70,6 +72,9 @@ func _physics_process(delta):
 	jump_higher = false
 
 func _UserInput_move_x(dir,facing):
+	if dir_x != dir:
+		Events.emit_signal("player_change_dir")
+		dir_x = dir
 	facing_right = facing
 	if dir == 1:
 		$Sprite.set_flip_h(true)
@@ -98,11 +103,13 @@ func _UserInput_dig():
 			#anim
 			pass
 		else:	
+			Events.emit_signal("store_block")
 			$Inventory.add("dirt_block", 1)
 			print("(Add) Dirt Blocks: " + String($Inventory.count("dirt_block")))
 		if dirt_block.seeded and dirt_block.stack_size == 1:
-			$Inventory.add("seed", 1)	
-			print("(Add) Seeds: " + String($Inventory.count("seed")))
+			if $Inventory.add("seed", 1):
+				Events.emit_signal("seed_pickup")
+				print("(Add) Seeds: " + String($Inventory.count("seed")))
 		dirt_block.remove_block_from_stack()
 		$Camera2D/shake.start()
 
@@ -115,6 +122,7 @@ func _UserInput_place_block():
 	else:
 		var player_pos_change = Vector2(0.0, CREATE_BLOCK_MOVE)
 		if _block_place_ok(player_pos_change):
+			Events.emit_signal("put_block")
 			_create_block_and_move(player_pos_change)
 		else: 	
 			#anim
@@ -159,10 +167,12 @@ func _UserInput_plant():
 			dirt_block.remove_seed()
 			$Inventory.add("seed", 1)
 			print("(Add) Seeds: " + String($Inventory.count("seed")))
+			Events.emit_signal("seed_pickup")
 		elif not dirt_block.seeded and not $Inventory.empty("seed"):	
 			dirt_block.plant_seed()
 			$Inventory.remove("seed")
 			print("(Rem) Seeds: " + String($Inventory.count("seed")))
+			Events.emit_signal("seed_plant")
 		else:
 			#anim
 			pass	
@@ -200,3 +210,6 @@ func _on_ladder_body_exited(body):
 	if body.name == "Shaun":
 		climbing = false
 	pass # Replace with function body.
+
+func _Events_seed_pickup():
+	$Inventory.add("seed", 1)
