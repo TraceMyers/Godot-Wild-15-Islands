@@ -8,7 +8,8 @@
 [ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/tilemaps/rock_map.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=9]
+
 
 [node name="LevelPackage" type="Node2D"]
 script = ExtResource( 1 )
