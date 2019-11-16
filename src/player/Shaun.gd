@@ -29,6 +29,7 @@ func _ready():
 	UserInput.connect("jp_plant", self, "_UserInput_plant")
 	UserInput.connect("ladder_dir",self,"ladder_input")
 	Events.connect("seed_pickup", self, "_Events_seed_pickup")
+	Events.connect("fork_block_destroy", self, "_Events_fork_block_destroy")
 
 func _physics_process(delta):
 	if climbing:
@@ -213,3 +214,9 @@ func _on_ladder_body_exited(body):
 
 func _Events_seed_pickup():
 	$Inventory.add("seed", 1)
+
+func _Events_fork_block_destroy():
+	if not $Inventory.full("dirt_block"):
+		Events.emit_signal("store_block")
+		$Inventory.add("dirt_block", 1)
+		print("(Add) Dirt Blocks: " + String($Inventory.count("dirt_block")))
