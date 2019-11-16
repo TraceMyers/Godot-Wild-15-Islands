@@ -12,6 +12,7 @@ func _ready():
 	var w = 0
 	for i in levels:
 		var a =Button.new()
+		print(i)
 		a.text = i
 		a.rect_min_size.y =50
 		a.connect("pressed",self,"load_level",[a.text])
@@ -23,6 +24,7 @@ func _ready():
 	for i in 4: 
 		if levels.size() >25*i and i !=0:
 			pages+=1
+
 	pass # Replace with function body.
 
 func list_files_in_directory(path):
@@ -42,6 +44,7 @@ func list_files_in_directory(path):
 
 	return files
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
 	if pages>1:
 		pass
@@ -50,9 +53,9 @@ func call_level(level):
 	Events.levels =levels
 	fade.raise()
 	fade.get_node("AnimationPlayer").play("fadeIn")
-	
 	yield(fade.get_node("AnimationPlayer"),"animation_finished")
 	get_tree().current_scene.queue_free()
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(path_levels+"/"+level)
 
 	pass

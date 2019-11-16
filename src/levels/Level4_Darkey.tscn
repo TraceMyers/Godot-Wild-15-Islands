@@ -12,7 +12,7 @@
 [ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=11]
 
-[node name="LevelPackage" type="Node2D"]
+[node name="Level4_Darkey" type="Node2D"]
 position = Vector2( -6, 85 )
 script = ExtResource( 1 )
 
