@@ -43,7 +43,7 @@ func _process(delta):
 					push = _get_push(body)
 					body.fan_push += push
 					if not shaun_pushed:
-						var shaun = get_parent().get_parent().get_node("Shaun")
+						var shaun = get_tree().get_nodes_in_group("Shaun")[0]
 						var block_under_shaun = shaun.get_node("Shovel").get_block_underneath()
 						if block_under_shaun == body:
 							shaun.position += push
