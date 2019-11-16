@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://src/levels/settings/DefaultSettings.gd" type="Script" id=2]
+[ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/blocks/RockBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/blocks/DirtBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/blocks/Fan.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/seed/seed_balloon.png" type="Texture" id=8]
+[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=10]
+
+[node name="LevelPackage" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Settings" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Shaun" parent="." instance=ExtResource( 3 )]
+position = Vector2( 414, 480 )
+
+[node name="StaticBlocks" type="Node2D" parent="."]
+
+[node name="RockBlock10" parent="StaticBlocks" instance=ExtResource( 4 )]
+position = Vector2( 390, 759 )
+
+[node name="RockBlock11" parent="StaticBlocks" instance=ExtResource( 4 )]
+position = Vector2( 324, 759 )
+
+[node name="RockBlock12" parent="StaticBlocks" instance=ExtResource( 4 )]
+position = Vector2( 456, 759 )
+
+[node name="RockBlock5" parent="StaticBlocks" instance=ExtResource( 4 )]
+position = Vector2( 1270, 501.541 )
+
+[node name="RockBlock6" parent="StaticBlocks" instance=ExtResource( 4 )]
+position = Vector2( 1204, 501.541 )
+
+[node name="RockBlock7" parent="StaticBlocks" instance=ExtResource( 4 )]
+position = Vector2( 1140, 501.541 )
+
+[node name="DirtBlocks" type="Node2D" parent="."]
+
+[node name="DirtBlock8" parent="DirtBlocks" instance=ExtResource( 5 )]
+position = Vector2( 456, 695 )
+
+[node name="DirtBlock9" parent="DirtBlocks" instance=ExtResource( 5 )]
+position = Vector2( 390, 695 )
+
+[node name="Fans" type="Node2D" parent="."]
+scale = Vector2( 0.994864, 0.956708 )
+
+[node name="Fan" parent="Fans" instance=ExtResource( 6 )]
+position = Vector2( 627.202, 799.629 )
+rotation = -0.785397
+scale = Vector2( 1.04525, 1.00516 )
+
+[node name="Fan2" parent="Fans" instance=ExtResource( 6 )]
+position = Vector2( 19.098, 240.408 )
+scale = Vector2( 1.04525, 1.00516 )
+
+[node name="Interactables" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="gate" parent="Interactables" instance=ExtResource( 7 )]
+position = Vector2( 1204, 420 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/gate"]
+texture = ExtResource( 8 )
+
+[node name="CloudScroll" parent="." instance=ExtResource( 9 )]
+
+[node name="reset_level" parent="." instance=ExtResource( 10 )]
+visible = false
