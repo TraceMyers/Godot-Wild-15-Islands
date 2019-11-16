@@ -98,8 +98,14 @@ func remove_block_from_stack():
 		$SpriteStack.get_node("StackSize%s" % stack_size).hide()
 		stack_size -= 1
 	else:
+		Events.emit_signal(
+			"create", 
+			"dirt_block_destroy_anim", 
+			position, 
+			"DirtBlocks", 
+			false
+		)
 		queue_free()	
-
 
 func _on_DetectCeiling_body_entered(body):
 	if "cloud" in body.name:

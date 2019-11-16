@@ -39,7 +39,7 @@ func _physics_process(delta):
 		if d_block.seeded:
 			position += d_block.rand_push
 			position.y -= d_block.float_speed
-	if velocity.y >= MAX_Y_SPEED :
+	if velocity.y >= 850:
 		hard_land = true
 	if $DetectFloor.colliding():
 		velocity.y = 0.0

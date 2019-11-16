@@ -1,7 +1,7 @@
 extends Node2D
 
 const bg_size := Vector2(2400, 1600)
-const scroll_speed : float = 16.0
+const scroll_speed : float = 19.0
 
 var bg := preload("res://src/background/CloudBG.tscn")
 var tile_matrix : Array = []
@@ -29,7 +29,7 @@ func _ready():
 
 func _process(delta):
 	var new_scroll_x = position.x - scroll_speed * delta
-	if new_scroll_x <= -bg_size.x:
+	if new_scroll_x <= -bg_size.x and not reset:
 		position.x = -bg_size.x
 		reset = true
 	elif reset:

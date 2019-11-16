@@ -80,7 +80,7 @@ extents = Vector2( 12, 30 )
 extents = Vector2( 2, 1 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 18, 17 )
+extents = Vector2( 14.5, 17 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 11.5, 1.5 )
