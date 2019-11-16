@@ -187,7 +187,6 @@ texture = ExtResource( 8 )
 
 [node name="Seed" type="Sprite" parent="Visualinventory"]
 visible = false
-position = Vector2( -2.88, 10 )
+position = Vector2( 0.5, -8 )
 scale = Vector2( 0.18, 0.18 )
-z_index = 2
 texture = ExtResource( 9 )
