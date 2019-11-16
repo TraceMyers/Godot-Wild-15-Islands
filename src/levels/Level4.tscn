@@ -1,16 +1,19 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/levels/settings/Settings4.gd" type="Script" id=2]
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/blocks/DirtBlockGrass.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/sprites/seed/seed_balloon.png" type="Texture" id=6]
-[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/seed/Seed.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/blocks/SeededBlock.gd" type="Script" id=4]
+[ext_resource path="res://src/blocks/DirtBlockGrass.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/seed/seed_balloon.png" type="Texture" id=7]
+[ext_resource path="res://src/blocks/Fork.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/blocks/DarkBG.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=14]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,39 +22,70 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Shaun" parent="." instance=ExtResource( 3 )]
-position = Vector2( 704, 352 )
+position = Vector2( 673, 256 )
 
 [node name="DirtBlocks" type="Node2D" parent="."]
 
-[node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1226, 736 )
+[node name="SeededBlock" type="Node2D" parent="DirtBlocks"]
+script = ExtResource( 4 )
+
+[node name="DirtBlock" parent="DirtBlocks/SeededBlock" instance=ExtResource( 5 )]
+position = Vector2( 1566, 482 )
 
 [node name="Fans" type="Node2D" parent="."]
 
 [node name="Interactables" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="gate" parent="Interactables" instance=ExtResource( 5 )]
-position = Vector2( 174, 572 )
+[node name="gate" parent="Interactables" instance=ExtResource( 6 )]
+editor/display_folded = true
+position = Vector2( 204, 320 )
 
 [node name="Sprite" type="Sprite" parent="Interactables/gate"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
-[node name="CloudScroll" parent="." instance=ExtResource( 7 )]
+[node name="Fork" parent="Interactables" instance=ExtResource( 8 )]
+position = Vector2( 480, 608 )
+rotation = 4.71239
+scale = Vector2( 1, 1.5 )
 
-[node name="fade" parent="." instance=ExtResource( 8 )]
+[node name="Fork12" parent="Interactables" instance=ExtResource( 8 )]
+position = Vector2( 1120, 216.84 )
+rotation = 3.14159
+
+[node name="Fork9" parent="Interactables" instance=ExtResource( 8 )]
+position = Vector2( 1504, -32 )
+rotation = 3.14159
+
+[node name="Fork10" parent="Interactables" instance=ExtResource( 8 )]
+position = Vector2( 1568, -32 )
+rotation = 3.14159
+
+[node name="Fork11" parent="Interactables" instance=ExtResource( 8 )]
+position = Vector2( 1632, -32 )
+rotation = 3.14159
+
+[node name="CloudScroll" parent="." instance=ExtResource( 9 )]
+
+[node name="fade" parent="." instance=ExtResource( 10 )]
 visible = false
 
-[node name="reset_level" parent="." instance=ExtResource( 9 )]
+[node name="reset_level" parent="." instance=ExtResource( 11 )]
 visible = false
 
 [node name="Rocks" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="rock_map" parent="Rocks" instance=ExtResource( 10 )]
-tile_data = PoolIntArray( 196615, 0, 0, 196616, 1, 0, 196617, 2, 0, 262151, 3, 0, 262152, 4, 0, 262153, 5, 0, 327687, 3, 0, 327688, 4, 0, 327689, 5, 0, 393223, 3, 0, 393224, 4, 0, 393225, 5, 0, 458759, 3, 0, 458760, 4, 0, 458761, 16, 0, 458762, 1, 0, 458763, 1, 0, 458764, 2, 0, 458772, 0, 0, 458773, 2, 0, 524295, 6, 0, 524296, 7, 0, 524297, 7, 0, 524298, 7, 0, 524299, 10, 0, 524300, 16, 0, 524301, 1, 0, 524302, 1, 0, 524303, 2, 0, 524308, 6, 0, 524309, 8, 0, 589835, 6, 0, 589836, 7, 0, 589837, 7, 0, 589838, 7, 0, 589839, 8, 0, 655361, 0, 0, 655362, 1, 0, 655363, 2, 0, 655391, 0, 0, 655392, 2, 0, 720897, 3, 0, 720898, 4, 0, 720899, 5, 0, 720917, 0, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 1, 0, 720925, 1, 0, 720926, 1, 0, 720927, 17, 0, 720928, 5, 0, 786433, 3, 0, 786434, 4, 0, 786435, 5, 0, 786451, 13, 0, 786452, 14, 0, 786453, 17, 0, 786454, 4, 0, 786455, 4, 0, 786456, 4, 0, 786457, 4, 0, 786458, 4, 0, 786459, 4, 0, 786460, 4, 0, 786461, 4, 0, 786462, 4, 0, 786463, 4, 0, 786464, 5, 0, 851969, 6, 0, 851970, 10, 0, 851971, 11, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 2, 0, 851986, 0, 0, 851987, 12, 0, 851988, 4, 0, 851989, 4, 0, 851990, 4, 0, 851991, 4, 0, 851992, 4, 0, 851993, 4, 0, 851994, 9, 0, 851995, 7, 0, 851996, 7, 0, 851997, 7, 0, 851998, 7, 0, 851999, 7, 0, 852000, 8, 0, 917506, 6, 0, 917507, 7, 0, 917508, 7, 0, 917509, 7, 0, 917510, 7, 0, 917511, 7, 0, 917512, 8, 0, 917521, 0, 0, 917522, 12, 0, 917523, 4, 0, 917524, 4, 0, 917525, 4, 0, 917526, 4, 0, 917527, 4, 0, 917528, 4, 0, 917529, 9, 0, 917530, 8, 0, 983056, 0, 0, 983057, 12, 0, 983058, 4, 0, 983059, 4, 0, 983060, 4, 0, 983061, 4, 0, 983062, 4, 0, 983063, 4, 0, 983064, 9, 0, 983065, 8, 0, 1048589, 0, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 12, 0, 1048593, 4, 0, 1048594, 4, 0, 1048595, 9, 0, 1048596, 7, 0, 1048597, 7, 0, 1048598, 7, 0, 1048599, 7, 0, 1048600, 8, 0, 1114121, 0, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 17, 0, 1114126, 9, 0, 1114127, 7, 0, 1114128, 7, 0, 1114129, 7, 0, 1114130, 7, 0, 1114131, 8, 0, 1179657, 6, 0, 1179658, 7, 0, 1179659, 7, 0, 1179660, 7, 0, 1179661, 7, 0, 1179662, 8, 0 )
+[node name="rock_map" parent="Rocks" instance=ExtResource( 12 )]
+tile_data = PoolIntArray( -196586, 0, 0, -196585, 1, 0, -196584, 1, 0, -196583, 1, 0, -196582, 2, 0, -131050, 6, 0, -131049, 7, 0, -131048, 7, 0, -131047, 7, 0, -131046, 8, 0, -65530, 0, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 2, 0, 6, 3, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 5, 0, 65542, 3, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 65546, 4, 0, 65547, 4, 0, 65548, 4, 0, 65549, 4, 0, 65550, 4, 0, 65551, 4, 0, 65552, 4, 0, 65553, 5, 0, 131078, 3, 0, 131079, 4, 0, 131080, 4, 0, 131081, 9, 0, 131082, 7, 0, 131083, 7, 0, 131084, 7, 0, 131085, 7, 0, 131086, 7, 0, 131087, 7, 0, 131088, 7, 0, 131089, 8, 0, 196614, 3, 0, 196615, 4, 0, 196616, 4, 0, 196617, 5, 0, 262150, 3, 0, 262151, 4, 0, 262152, 4, 0, 262153, 5, 0, 327686, 3, 0, 327687, 4, 0, 327688, 4, 0, 327689, 16, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 2, 0, 393222, 6, 0, 393223, 7, 0, 393224, 10, 0, 393225, 4, 0, 393226, 9, 0, 393227, 7, 0, 393228, 7, 0, 393229, 7, 0, 393230, 7, 0, 393231, 7, 0, 393232, 8, 0, 458760, 3, 0, 458761, 4, 0, 458762, 5, 0, 458780, 0, 0, 458781, 2, 0, 524296, 3, 0, 524297, 4, 0, 524298, 5, 0, 524316, 6, 0, 524317, 8, 0, 524320, 0, 0, 524321, 2, 0, 589832, 6, 0, 589833, 7, 0, 589834, 8, 0, 589856, 3, 0, 589857, 5, 0, 655362, 0, 0, 655363, 1, 0, 655364, 1, 0, 655365, 2, 0, 655391, 0, 0, 655392, 17, 0, 655393, 5, 0, 720898, 3, 0, 720899, 4, 0, 720900, 4, 0, 720901, 5, 0, 720917, 0, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 1, 0, 720925, 1, 0, 720926, 1, 0, 720927, 17, 0, 720928, 9, 0, 720929, 8, 0, 786434, 6, 0, 786435, 10, 0, 786436, 4, 0, 786437, 5, 0, 786451, 13, 0, 786452, 14, 0, 786453, 17, 0, 786454, 4, 0, 786455, 4, 0, 786456, 4, 0, 786457, 4, 0, 786458, 4, 0, 786459, 4, 0, 786460, 4, 0, 786461, 4, 0, 786462, 4, 0, 786463, 4, 0, 786464, 5, 0, 851971, 6, 0, 851972, 10, 0, 851973, 11, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 2, 0, 851986, 0, 0, 851987, 12, 0, 851988, 4, 0, 851989, 4, 0, 851990, 4, 0, 851991, 4, 0, 851992, 4, 0, 851993, 4, 0, 851994, 9, 0, 851995, 7, 0, 851996, 7, 0, 851997, 7, 0, 851998, 7, 0, 851999, 7, 0, 852000, 8, 0, 917508, 3, 0, 917509, 4, 0, 917510, 4, 0, 917511, 4, 0, 917512, 4, 0, 917513, 4, 0, 917514, 4, 0, 917515, 4, 0, 917516, 5, 0, 917521, 0, 0, 917522, 12, 0, 917523, 4, 0, 917524, 4, 0, 917525, 4, 0, 917526, 4, 0, 917527, 4, 0, 917528, 4, 0, 917529, 9, 0, 917530, 8, 0, 983044, 6, 0, 983045, 7, 0, 983046, 7, 0, 983047, 7, 0, 983048, 7, 0, 983049, 7, 0, 983050, 7, 0, 983051, 7, 0, 983052, 8, 0, 983056, 0, 0, 983057, 12, 0, 983058, 4, 0, 983059, 4, 0, 983060, 4, 0, 983061, 4, 0, 983062, 4, 0, 983063, 4, 0, 983064, 9, 0, 983065, 8, 0, 1048589, 0, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 12, 0, 1048593, 4, 0, 1048594, 4, 0, 1048595, 9, 0, 1048596, 7, 0, 1048597, 7, 0, 1048598, 7, 0, 1048599, 7, 0, 1048600, 8, 0, 1114125, 3, 0, 1114126, 9, 0, 1114127, 7, 0, 1114128, 7, 0, 1114129, 7, 0, 1114130, 7, 0, 1114131, 8, 0, 1179661, 6, 0, 1179662, 8, 0 )
+
+[node name="TileMap" parent="Rocks" instance=ExtResource( 13 )]
+tile_data = PoolIntArray( 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0 )
+
+[node name="TileMap2" parent="Rocks" instance=ExtResource( 13 )]
+tile_data = PoolIntArray( 131089, 0, 0, 196625, 0, 0, 262161, 0, 0, 327697, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 458758, 0, 0, 458759, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 524294, 0, 0, 524295, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 589830, 0, 0, 589831, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0 )
 
 [node name="Statics" type="Node2D" parent="."]
 
-[node name="Seed" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2048, 608 )
+[node name="cloud" parent="Statics" instance=ExtResource( 14 )]
+position = Vector2( 204, 376 )
+scale = Vector2( 2, 5 )
