@@ -1,16 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/levels/Settings6.gd" type="Script" id=2]
 [ext_resource path="res://src/player/Shaun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/player/ShaunCredits.gd" type="Script" id=4]
-[ext_resource path="res://src/blocks/SeedBlock.gd" type="Script" id=5]
-[ext_resource path="res://src/blocks/DirtBlockGrass.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/levels/Credits.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/credits/trace.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/credits/darkey.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/credits/antony.png" type="Texture" id=8]
+[ext_resource path="res://src/blocks/SeedBlock.gd" type="Script" id=9]
+[ext_resource path="res://src/blocks/DirtBlockGrass.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=15]
 
 [node name="LevelPackage" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,31 +26,46 @@ script = ExtResource( 2 )
 position = Vector2( 652.24, 1796 )
 script = ExtResource( 4 )
 
+[node name="Credits" type="Node2D" parent="Shaun"]
+position = Vector2( 0, 200 )
+script = ExtResource( 5 )
+
+[node name="Trace" type="Sprite" parent="Shaun/Credits"]
+texture = ExtResource( 6 )
+
+[node name="Darkey" type="Sprite" parent="Shaun/Credits"]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Antony" type="Sprite" parent="Shaun/Credits"]
+visible = false
+texture = ExtResource( 8 )
+
 [node name="StaticBlocks" type="Node2D" parent="."]
 editor/display_folded = true
 
 [node name="DirtBlocks" type="Node2D" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 9 )
 
-[node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 6 )]
+[node name="DirtBlock" parent="DirtBlocks" instance=ExtResource( 10 )]
 position = Vector2( 650, 1894 )
 
 [node name="Fans" type="Node2D" parent="."]
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="gate" parent="Interactables" instance=ExtResource( 7 )]
+[node name="gate" parent="Interactables" instance=ExtResource( 11 )]
 position = Vector2( 648, 90 )
 scale = Vector2( 1.75, 1.75 )
 
-[node name="CloudScroll" parent="." instance=ExtResource( 8 )]
+[node name="CloudScroll" parent="." instance=ExtResource( 12 )]
 
-[node name="fade" parent="." instance=ExtResource( 9 )]
+[node name="fade" parent="." instance=ExtResource( 13 )]
 visible = false
 
-[node name="reset_level" parent="." instance=ExtResource( 10 )]
+[node name="reset_level" parent="." instance=ExtResource( 14 )]
 visible = false
 
 [node name="Rocks" type="Node2D" parent="."]
 
-[node name="rock_map" parent="Rocks" instance=ExtResource( 11 )]
+[node name="rock_map" parent="Rocks" instance=ExtResource( 15 )]
