@@ -178,10 +178,10 @@ position = Vector2( 0, 2 )
 shape = SubResource( 10 )
 
 [node name="pause" parent="." instance=ExtResource( 6 )]
-margin_left = -440.0
-margin_top = -305.0
-margin_right = -440.0
-margin_bottom = -305.0
+margin_left = -455.0
+margin_top = -360.0
+margin_right = -455.0
+margin_bottom = -360.0
 rect_scale = Vector2( 0.724845, 0.769327 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 7 )]
