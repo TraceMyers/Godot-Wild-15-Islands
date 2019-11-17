@@ -27,8 +27,7 @@ func _door_anim_timer_timeout():
 					# warning-ignore:return_value_discarded
 					fade.get_node("AnimationPlayer").play("fadeIn")
 					yield(fade.get_node("AnimationPlayer"),"animation_finished")
-					Events.current_level += 1
-					get_tree().change_scene(path+"Level%s"%String(Events.current_level)+".tscn")
+					get_tree().change_scene(path+"Level%s"%String(Events.current_level + 1)+".tscn")
 				else:
 					fade.raise()
 					fade.get_node("AnimationPlayer").play("fadeIn")
