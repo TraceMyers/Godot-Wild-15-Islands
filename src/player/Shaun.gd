@@ -19,6 +19,7 @@ var jump_input : bool = false
 var jump_higher : bool = false
 var facing_right = false
 var SPEED = 1000
+var in_air : bool = false
 
 func _ready():
 	UserInput.connect("move_x", self, "_UserInput_move_x")
@@ -44,8 +45,13 @@ func _physics_process(delta):
 			position.y -= d_block.float_speed
 	if velocity.y >= 850:
 		hard_land = true
+	elif velocity.y > 200:
+		in_air = true	
 	if $DetectFloor.colliding():
 		velocity.y = 0.0
+		if in_air:
+			in_air = false
+			Audio.emit_signal("play_sound", "landing")
 		if hard_land:
 			hard_land = false
 			hard_land()
@@ -88,10 +94,10 @@ func _UserInput_move_x(dir,facing):
 	move_x_input = true
 
 func _UserInput_init_jump():
+	Audio.emit_signal("play_sound", "jump")
 	jump_input = true
 
 func _UserInput_jump_higher():
-	
 	if not is_on_floor() and velocity.y < 0:
 		jump_higher = true
 
@@ -112,6 +118,7 @@ func _UserInput_dig():
 				Events.emit_signal("seed_pickup")
 				print("(Add) Seeds: " + String($Inventory.count("seed")))
 		dirt_block.remove_block_from_stack()
+		Audio.emit_signal("play_sound", "shovel")
 		$Camera2D/shake.start()
 
 func _UserInput_place_block():

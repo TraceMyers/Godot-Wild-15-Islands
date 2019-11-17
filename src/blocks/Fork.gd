@@ -32,3 +32,4 @@ func _process(delta):
 				false,
 				0.5
 			)
+			Audio.emit_signal("play_sound", "balloon_pop")

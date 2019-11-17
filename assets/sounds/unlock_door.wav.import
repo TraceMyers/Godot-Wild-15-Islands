@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/unlock_door.wav-253726deb88d47b00cce57e91123eb44.sample"
+
+[deps]
+
+source_file="res://assets/sounds/unlock_door.wav"
+dest_files=[ "res://.import/unlock_door.wav-253726deb88d47b00cce57e91123eb44.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

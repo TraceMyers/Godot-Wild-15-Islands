@@ -12,7 +12,7 @@ func _ready():
 	var lvl_bot_right = get_parent().get_node("Settings").boundary_bottom_right
 	var tile_ct := Vector2(
 		ceil(lvl_bot_right.x / bg_size.x) + 1.0,
-		ceil(lvl_bot_right.y / bg_size.y)
+		ceil(lvl_bot_right.y / bg_size.y) + 1.0
 	)
 	var start_tiling_at := Vector2.ZERO
 	for i in range(tile_ct.x):

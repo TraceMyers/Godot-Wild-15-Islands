@@ -59,6 +59,7 @@ func _generate_new_rand_push():
 
 
 func plant_seed():
+	Audio.emit_signal("play_sound", "balloon_inflate")
 	$SeedSprite.show()
 	$SeedBalloon.show()
 	$SeedBalloon/AnimationPlayer.play("Grow")
@@ -67,6 +68,7 @@ func plant_seed():
 	seeded = true
 
 func remove_seed():
+	Audio.emit_signal("play_sound", "balloon_pop")
 	$SeedSprite.hide()
 	$SeedBalloon.hide()
 	seeded = false

@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 UserInput="*res://src/main/Input.gd"
 Events="*res://src/main/Events.gd"
 fade="*res://src/main/fade.tscn"
+Audio="*res://src/main/Audio.gd"
 
 [display]
 

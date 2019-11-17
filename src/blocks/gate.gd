@@ -16,6 +16,8 @@ func _on_Area2D_body_entered(_body):
 		$AnimationPlayer.play("OpenDoor")
 		body = _body
 		already_opened = true
+		Audio.emit_signal("play_sound", "unlock_door")
+		Audio.emit_signal("play_sound", "open_door")
 
 func _door_anim_timer_timeout():
 	if Events.levels.size() > Events.current_level:
