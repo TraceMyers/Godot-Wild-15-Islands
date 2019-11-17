@@ -84,7 +84,7 @@ extents = Vector2( 12, 30 )
 extents = Vector2( 2, 1 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 14.5, 17 )
+extents = Vector2( 16, 17 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 11.5, 1.5 )
@@ -132,7 +132,6 @@ scale = Vector2( 0.25, 4 )
 shape = SubResource( 6 )
 
 [node name="PlaceBlock" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, -8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock"]

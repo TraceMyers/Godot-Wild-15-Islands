@@ -25,6 +25,7 @@ tracks/0/keys = {
 extents = Vector2( 69.0799, 2.91705 )
 
 [node name="cloud" type="Node2D"]
+z_index = 1
 
 [node name="cloud" type="KinematicBody2D" parent="."]
 scale = Vector2( 1, 0.38 )

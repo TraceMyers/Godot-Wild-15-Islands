@@ -21,6 +21,7 @@ func _ready():
 		if levels.size() >25*i and i !=0:
 			pages+=1
 	print(levels)
+	_on_Button3_pressed()
 	pass # Replace with function body.
 
 func list_files_in_directory(path):
