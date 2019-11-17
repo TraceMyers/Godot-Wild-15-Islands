@@ -9,7 +9,6 @@ func _ready():
 	var w = 0
 	for i in levels:
 		var a =Button.new()
-		print(i)
 		a.text = i
 		a.rect_min_size.y =50
 		a.connect("pressed",self,"load_level",[a.text])
@@ -21,7 +20,7 @@ func _ready():
 	for i in 4: 
 		if levels.size() >25*i and i !=0:
 			pages+=1
-
+	print(levels)
 	pass # Replace with function body.
 
 func list_files_in_directory(path):
@@ -61,8 +60,7 @@ func load_level(index):
 		if i == index:
 			call_level(i) 
 func _on_Button_pressed():
-	$VBoxContainer.hide()
-	$VBoxContainer2.show()
+	load_level("Level1.tscn")
 	pass # Replace with function body.
 
 
@@ -116,4 +114,10 @@ func _on_pre_pressed():
 					break
 				count+=1
 			i+=1
+	pass # Replace with function body.
+
+
+func _on_select_pressed():
+	$VBoxContainer.hide()
+	$VBoxContainer2.show()	
 	pass # Replace with function body.

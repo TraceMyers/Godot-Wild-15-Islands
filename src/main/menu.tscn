@@ -37,10 +37,17 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 text = "play"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="select" type="Button" parent="VBoxContainer"]
 margin_top = 160.0
 margin_right = 440.0
 margin_bottom = 210.0
+rect_min_size = Vector2( 0, 50 )
+text = "select level"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_top = 320.0
+margin_right = 440.0
+margin_bottom = 370.0
 rect_min_size = Vector2( 0, 50 )
 text = "quit"
 
@@ -98,6 +105,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 209.62, 50 )
 text = "back"
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/select" to="." method="_on_select_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="VBoxContainer2/box2/box/pre" to="." method="_on_pre_pressed"]
 [connection signal="pressed" from="VBoxContainer2/box2/box/next" to="." method="_on_next_pressed"]

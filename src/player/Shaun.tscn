@@ -1,14 +1,15 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/player/Shaun.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/player/playersheet.png" type="Texture" id=2]
 [ext_resource path="res://src/player/Inventory.gd" type="Script" id=3]
 [ext_resource path="res://src/player/Shovel.gd" type="Script" id=4]
 [ext_resource path="res://src/player/VertCollis.gd" type="Script" id=5]
-[ext_resource path="res://src/player/Camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/player/Visualinventory.gd" type="Script" id=7]
-[ext_resource path="res://assets/sprites/blocks/dirt_block_grass.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/seed/seed.png" type="Texture" id=9]
+[ext_resource path="res://src/main/pause.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/player/Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/player/Visualinventory.gd" type="Script" id=8]
+[ext_resource path="res://assets/sprites/blocks/dirt_block_grass.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/seed/seed.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fall"
@@ -146,7 +147,14 @@ script = ExtResource( 5 )
 position = Vector2( 0, 2 )
 shape = SubResource( 8 )
 
-[node name="Camera2D" parent="." instance=ExtResource( 6 )]
+[node name="pause" parent="." instance=ExtResource( 6 )]
+margin_left = -440.0
+margin_top = -305.0
+margin_right = -440.0
+margin_bottom = -305.0
+rect_scale = Vector2( 0.724845, 0.769327 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 7 )]
 visible = false
 limit_smoothed = true
 smoothing_speed = 7.5
@@ -165,28 +173,28 @@ shape = SubResource( 9 )
 [node name="Visualinventory" type="Node2D" parent="."]
 position = Vector2( 20, -20.5 )
 z_index = -2
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Block1" type="Sprite" parent="Visualinventory"]
 visible = false
 position = Vector2( 0, 2 )
 scale = Vector2( 0.09, 0.09 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Block2" type="Sprite" parent="Visualinventory"]
 visible = false
 position = Vector2( -3.5, -2.5 )
 scale = Vector2( 0.09, 0.09 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Block3" type="Sprite" parent="Visualinventory"]
 visible = false
 position = Vector2( 4, -2.5 )
 scale = Vector2( 0.09, 0.09 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Seed" type="Sprite" parent="Visualinventory"]
 visible = false
 position = Vector2( 0.5, -8 )
 scale = Vector2( 0.18, 0.18 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
