@@ -24,3 +24,11 @@ func _process(delta):
 				block_exists = dirt_block.remove_block_from_stack()
 				Events.emit_signal("fork_block_destroy")
 			Events.emit_signal("seed_pickup")	
+			Events.emit_signal(
+				"create",
+				"seed_balloon_pop",
+				dirt_block.position,
+				"DirtBlocks",
+				false,
+				0.5
+			)

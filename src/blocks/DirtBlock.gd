@@ -61,6 +61,7 @@ func _generate_new_rand_push():
 func plant_seed():
 	$SeedSprite.show()
 	$SeedBalloon.show()
+	$SeedBalloon/AnimationPlayer.play("Grow")
 	set_physics_process(true)
 	velocity.y = 0.0
 	seeded = true
@@ -89,6 +90,15 @@ func remove_block_from_stack():
 		stack_size -= 1
 		return true
 	else:
+		if seeded:
+			Events.emit_signal(
+				"create",
+				"seed_balloon_pop",
+				position,
+				"DirtBlocks",
+				false,
+				0.5
+			)
 		Events.emit_signal(
 			"create", 
 			"dirt_block_destroy_anim", 

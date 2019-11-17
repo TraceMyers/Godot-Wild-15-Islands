@@ -1,22 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/blocks/DirtBlock.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/blocks/dirt_block.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/blocks/dirt_block_grass.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/seed/seed.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/seed/seed_balloon.png" type="Texture" id=5]
-[ext_resource path="res://src/blocks/FloatCollision.gd" type="Script" id=6]
+[ext_resource path="res://src/blocks/FloatCollision.gd" type="Script" id=5]
+[ext_resource path="res://assets/animations/SeedBalloon.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 12.0
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31, 0.5 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 31, 0.5 )
 
 [node name="DirtBlock" type="KinematicBody2D"]
@@ -47,33 +44,25 @@ position = Vector2( -9.53674e-007, 0.250001 )
 scale = Vector2( 1, 0.992188 )
 texture = ExtResource( 4 )
 
-[node name="SeedBalloon" type="Area2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="SeedBalloon"]
-position = Vector2( 0, -123 )
-scale = Vector2( 1, 1.5 )
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SeedBalloon"]
-position = Vector2( 0, -177 )
-scale = Vector2( 2, 3 )
-shape = SubResource( 2 )
-
 [node name="DetectCeiling" type="Area2D" parent="."]
 position = Vector2( 0, -32 )
 collision_mask = 2
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectCeiling"]
 position = Vector2( 0, 0.5 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="DetectFloor" type="Area2D" parent="."]
 position = Vector2( 0, 15.5 )
 collision_mask = 2
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectFloor"]
 position = Vector2( 0, 16.5 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
+
+[node name="SeedBalloon" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, -122 )
 [connection signal="body_entered" from="DetectCeiling" to="." method="_on_DetectCeiling_body_entered"]
