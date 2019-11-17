@@ -15,6 +15,10 @@ func _process(delta):
 	if move and $Sprite.position.y < MOVE_DIST:
 		$Sprite.position.y += MOVE_SPEED * delta
 		$CollisionShape2D.position.y += MOVE_SPEED * delta
+		if not Audio.sound_is_playing("rock_wall_move"):
+			Audio.emit_signal("play_sound", "rock_wall_move")
 	elif not move and $Sprite.position.y > START_Y:
 		$Sprite.position.y -= MOVE_SPEED * delta	
 		$CollisionShape2D.position.y -= MOVE_SPEED * delta	
+		if not Audio.sound_is_playing("rock_wall_move"):
+			Audio.emit_signal("play_sound", "rock_wall_move")

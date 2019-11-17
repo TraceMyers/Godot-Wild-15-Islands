@@ -25,3 +25,6 @@ func _ready():
 
 func _play_sound(sound_name):
 	sound_name_to_player[sound_name].play()
+
+func sound_is_playing(sound_name):
+	return sound_name_to_player[sound_name].is_playing()

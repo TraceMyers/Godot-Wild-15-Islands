@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dirt_crumble.wav-2eeb4a2abdfd8271e737eaca78d4156b.sample"
+
+[deps]
+
+source_file="res://assets/sounds/dirt_crumble.wav"
+dest_files=[ "res://.import/dirt_crumble.wav-2eeb4a2abdfd8271e737eaca78d4156b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

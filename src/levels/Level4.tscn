@@ -93,7 +93,6 @@ position = Vector2( 1856.66, 450.5 )
 scale = Vector2( 2, 5 )
 
 [node name="ControlsTM" parent="." instance=ExtResource( 14 )]
-format = 1
 tile_data = PoolIntArray( 1048589, 1, 0 )
 
 [node name="ControlsSeedSprite" type="Sprite" parent="."]
