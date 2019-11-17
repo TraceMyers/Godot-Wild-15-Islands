@@ -56,9 +56,10 @@ func _physics_process(delta):
 			hard_land = false
 			hard_land()
 		elif abs(velocity.x) <= 0.1:
-			$Sprite/AnimationPlayer.play("idle")	
-		else:
-			$Sprite/AnimationPlayer.play("Run")	
+			if $Sprite/AnimationPlayer.current_animation != "Plant":
+				$Sprite/AnimationPlayer.play("idle")	
+		elif $Sprite/AnimationPlayer.current_animation != "Plant":
+				$Sprite/AnimationPlayer.play("Run")	
 		if jump_input:
 			$Sprite/AnimationPlayer.play("Jump")
 			velocity.y = INIT_JUMP_SPEED
@@ -173,11 +174,13 @@ func _UserInput_plant():
 	if dirt_block != null:
 		if dirt_block.seeded and not $Inventory.full("seed"):
 			dirt_block.remove_seed()
+			$Sprite/AnimationPlayer.play("Plant")
 			$Inventory.add("seed", 1)
 			print("(Add) Seeds: " + String($Inventory.count("seed")))
 			Events.emit_signal("seed_pickup")
 		elif not dirt_block.seeded and not $Inventory.empty("seed"):	
 			dirt_block.plant_seed()
+			$Sprite/AnimationPlayer.play("Plant")
 			$Inventory.remove("seed")
 			print("(Rem) Seeds: " + String($Inventory.count("seed")))
 			Events.emit_signal("seed_plant")
