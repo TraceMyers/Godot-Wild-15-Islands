@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/levels/settings/Settings4.gd" type="Script" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/blocks/DarkBG.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/blocks/cloud.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/main/ControlsTM.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/sprites/seed/seed.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/blocks/dirt_block_grass.png" type="Texture" id=16]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource( 1 )
@@ -88,3 +91,16 @@ scale = Vector2( 2, 5 )
 [node name="cloud2" parent="Statics" instance=ExtResource( 13 )]
 position = Vector2( 1856.66, 450.5 )
 scale = Vector2( 2, 5 )
+
+[node name="ControlsTM" parent="." instance=ExtResource( 14 )]
+format = 1
+tile_data = PoolIntArray( 1048589, 1, 0 )
+
+[node name="ControlsSeedSprite" type="Sprite" parent="."]
+position = Vector2( 896, 1120 )
+z_index = 2
+texture = ExtResource( 15 )
+
+[node name="ControlsBlockSprite" type="Sprite" parent="."]
+position = Vector2( 896, 1120 )
+texture = ExtResource( 16 )

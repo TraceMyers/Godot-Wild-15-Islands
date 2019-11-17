@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/levels/settings/Settings1.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/main/ControlsTM.tscn" type="PackedScene" id=9]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -45,3 +46,8 @@ tile_data = PoolIntArray( 786446, 0, 0, 786447, 2, 0, 851973, 0, 0, 851974, 1, 0
 [node name="rock_map2" parent="rocks" instance=ExtResource( 8 )]
 position = Vector2( -110, 0 )
 tile_data = PoolIntArray( 917539, 0, 0, 917540, 1, 0, 917541, 1, 0, 917542, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 2, 0, 983075, 6, 0, 983076, 10, 0, 983077, 4, 0, 983078, 4, 0, 983079, 4, 0, 983080, 4, 0, 983081, 9, 0, 983082, 8, 0, 1048612, 6, 0, 1048613, 10, 0, 1048614, 4, 0, 1048615, 4, 0, 1048616, 9, 0, 1048617, 8, 0, 1114149, 6, 0, 1114150, 7, 0, 1114151, 7, 0, 1114152, 8, 0 )
+
+[node name="ControlsTM" parent="." instance=ExtResource( 9 )]
+z_index = 5
+format = 1
+tile_data = PoolIntArray( 851978, 0, 0 )
