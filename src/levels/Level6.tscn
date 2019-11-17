@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/levels/Settings6.gd" type="Script" id=2]
@@ -7,11 +7,10 @@
 [ext_resource path="res://src/blocks/SeedBlock.gd" type="Script" id=5]
 [ext_resource path="res://src/blocks/DirtBlockGrass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/blocks/gate.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/sprites/seed/seed_balloon.png" type="Texture" id=8]
-[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/main/CloudScroll.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/main/fade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/main/restart_level.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/blocks/rock_map.tscn" type="PackedScene" id=11]
 
 [node name="LevelPackage" type="Node2D"]
 script = ExtResource( 1 )
@@ -37,19 +36,17 @@ position = Vector2( 650, 1894 )
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="gate" parent="Interactables" instance=ExtResource( 7 )]
-position = Vector2( 646, 54 )
+position = Vector2( 648, 90 )
+scale = Vector2( 1.75, 1.75 )
 
-[node name="Sprite" type="Sprite" parent="Interactables/gate"]
-texture = ExtResource( 8 )
+[node name="CloudScroll" parent="." instance=ExtResource( 8 )]
 
-[node name="CloudScroll" parent="." instance=ExtResource( 9 )]
-
-[node name="fade" parent="." instance=ExtResource( 10 )]
+[node name="fade" parent="." instance=ExtResource( 9 )]
 visible = false
 
-[node name="reset_level" parent="." instance=ExtResource( 11 )]
+[node name="reset_level" parent="." instance=ExtResource( 10 )]
 visible = false
 
 [node name="Rocks" type="Node2D" parent="."]
 
-[node name="rock_map" parent="Rocks" instance=ExtResource( 12 )]
+[node name="rock_map" parent="Rocks" instance=ExtResource( 11 )]
