@@ -108,6 +108,7 @@ func remove_block_from_stack():
 			"DirtBlocks", 
 			false
 		)
+		Audio.emit_signal("play_sound", "dirt_crumble")
 		queue_free()	
 		return false
 

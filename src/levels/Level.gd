@@ -18,6 +18,7 @@ var name_to_object : Dictionary = {
 
 func _ready():
 	Events.connect("create", self, "_Events_create")
+	Audio.emit_signal("play_sound", "wind1")
 
 func _Events_create(object_name, position, parent_name, run_physics, timer_set=-1.0):
 	var object =  name_to_object[object_name].instance()

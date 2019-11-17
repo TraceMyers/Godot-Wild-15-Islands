@@ -18,6 +18,7 @@ func _on_Area2D_body_entered(_body):
 		already_opened = true
 		Audio.emit_signal("play_sound", "unlock_door")
 		Audio.emit_signal("play_sound", "open_door")
+		Audio.emit_signal("play_sound", "wind2")
 
 func _door_anim_timer_timeout():
 	if Events.levels.size() > Events.current_level:

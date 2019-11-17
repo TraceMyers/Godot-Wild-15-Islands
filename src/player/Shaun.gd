@@ -151,6 +151,7 @@ func _block_place_ok(player_pos_change):
 
 func _create_block_and_move(player_pos_change):
 	var dirt_block = $Shovel.get_block_underneath()
+	Audio.emit_signal("play_sound", "dirt_thump")
 	if dirt_block != null and dirt_block.seeded and not dirt_block.stack_full():
 		dirt_block.add_block_to_stack()
 	else:	

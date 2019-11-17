@@ -33,3 +33,4 @@ func _process(delta):
 				0.5
 			)
 			Audio.emit_signal("play_sound", "balloon_pop")
+			Audio.emit_signal("play_sound", "dirt_crumble")
