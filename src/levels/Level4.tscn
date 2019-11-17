@@ -39,7 +39,7 @@ position = Vector2( 1566, 482 )
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="gate" parent="Interactables" instance=ExtResource( 6 )]
-position = Vector2( 204, 305 )
+position = Vector2( 204.664, 196 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Fork" parent="Interactables" instance=ExtResource( 7 )]
@@ -85,7 +85,7 @@ tile_data = PoolIntArray( 131089, 0, 0, 196625, 0, 0, 262161, 0, 0, 327697, 0, 0
 [node name="Statics" type="Node2D" parent="."]
 
 [node name="cloud" parent="Statics" instance=ExtResource( 13 )]
-position = Vector2( 204, 376 )
+position = Vector2( 204.664, 267 )
 scale = Vector2( 2, 5 )
 
 [node name="cloud2" parent="Statics" instance=ExtResource( 13 )]

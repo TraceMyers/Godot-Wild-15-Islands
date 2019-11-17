@@ -1,27 +1,36 @@
 extends Node
 
 const path : String = "res://assets/sounds/"
-var sound_name_to_player : Dictionary = {}
+var sound_name_to_player : Dictionary = {
+	"balloon_inflate": load("res://assets/sounds/balloon_inflate.wav"),
+	"balloon_pop": load("res://assets/sounds/balloon_pop.wav"),
+	"dirt_crumble": load("res://assets/sounds/dirt_crumble.wav"),
+	"dirt_thump": load("res://assets/sounds/dirt_thump.wav"),
+	"fan": load("res://assets/sounds/fan.wav"),
+	"jump": load("res://assets/sounds/jump.wav"),
+	"landing": load("res://assets/sounds/landing.wav"),
+	"music": load("res://assets/sounds/music.ogg"),
+	"open_door": load("res://assets/sounds/open_door.wav"),
+	"rock_wall_move": load("res://assets/sounds/rock_wall_move.wav"),
+	"seed_pickup": load("res://assets/sounds/seed_pickup.wav"),
+	"shovel": load("res://assets/sounds/shovel.wav"),
+	"unlock_door": load("res://assets/sounds/unlock_door.wav"),
+	"wind1": load("res://assets/sounds/wind1.wav"),
+	"wind2": load("res://assets/sounds/wind2.wav"),
+}
 
 signal play_sound
 
 func _ready():
 	connect("play_sound", self, "_play_sound")
-	var audio_dir := Directory.new()
-	if audio_dir.open(path) == OK:
-		audio_dir.list_dir_begin()
-		var audio_file_name = audio_dir.get_next()
-		while audio_file_name != "":
-			if audio_file_name.ends_with(".wav"):
-				var name_no_ext = audio_file_name.substr(0, audio_file_name.length()-4)
-				var new_player = AudioStreamPlayer.new()
-				add_child(new_player)
-				new_player.set_bus(name_no_ext)
-				new_player.stream = load(path + audio_file_name)
-				sound_name_to_player[name_no_ext] = new_player
-				print("filename: " + audio_file_name)
-				print("bus: " + name_no_ext)
-			audio_file_name = audio_dir.get_next()
+	for key in sound_name_to_player.keys():
+		var new_player = AudioStreamPlayer.new()
+		add_child(new_player)
+		new_player.set_bus(key)
+		new_player.stream = sound_name_to_player[key]
+		sound_name_to_player[key] = new_player
+		if key == "music":
+			new_player.play()
 
 func _play_sound(sound_name):
 	sound_name_to_player[sound_name].play()
