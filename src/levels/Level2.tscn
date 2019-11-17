@@ -49,5 +49,4 @@ tile_data = PoolIntArray( 851979, 0, 0, 851980, 1, 0, 851981, 1, 0, 851982, 2, 0
 
 [node name="ControlsTM" parent="." instance=ExtResource( 10 )]
 z_index = 5
-format = 1
 tile_data = PoolIntArray( 983069, 3, 0, 1114148, 2, 0 )
