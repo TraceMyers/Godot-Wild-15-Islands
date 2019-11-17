@@ -1,12 +1,9 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var path_levels= "res://src/levels"
 var levels 
 var pages =1
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	levels = list_files_in_directory(path_levels)
 	var w = 0

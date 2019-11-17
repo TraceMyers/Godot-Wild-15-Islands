@@ -2,10 +2,12 @@ extends Node2D
 
 var dirt_block = preload("res://src/blocks/DirtBlock.tscn")
 var dirt_block_destroy_anim = preload("res://assets/animations/DirtBlockDestroy.tscn")
+var _seed = preload("res://src/seed/Seed.tscn")
 
 var name_to_object : Dictionary = {
 	"dirt_block": dirt_block,
-	"dirt_block_destroy_anim": dirt_block_destroy_anim
+	"dirt_block_destroy_anim": dirt_block_destroy_anim,
+	"seed": _seed
 }
 
 func _ready():

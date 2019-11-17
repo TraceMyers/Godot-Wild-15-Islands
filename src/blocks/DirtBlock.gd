@@ -79,24 +79,15 @@ func stack_empty():
 func add_block_to_stack():
 	print("adding")
 	float_speed -= INIT_FLOAT_SPEED
-	position.y -= BLOCK_HEIGHT
-	shaun_y_offset -= BLOCK_HEIGHT / 2
-	$CollisionPolygon2D.scale.y += 1.0
-	$CollisionPolygon2D.position.y += BLOCK_HEIGHT / 4
-	$DetectFloor.position.y += BLOCK_HEIGHT / 2
+	scale += Vector2(0.65, 0.65)
 	stack_size += 1
-	$SpriteStack.get_node("StackSize%s" % stack_size).show()
 
 func remove_block_from_stack():
 	if stack_size > 1:
 		float_speed += INIT_FLOAT_SPEED
-		position.y += BLOCK_HEIGHT
-		shaun_y_offset += BLOCK_HEIGHT / 2
-		$CollisionPolygon2D.scale.y -= 1.0
-		$CollisionPolygon2D.position.y -= BLOCK_HEIGHT / 4
-		$DetectFloor.position.y -= BLOCK_HEIGHT / 2
-		$SpriteStack.get_node("StackSize%s" % stack_size).hide()
+		scale -= Vector2(0.65, 0.65)
 		stack_size -= 1
+		return true
 	else:
 		Events.emit_signal(
 			"create", 
@@ -106,6 +97,7 @@ func remove_block_from_stack():
 			false
 		)
 		queue_free()	
+		return false
 
 func _on_DetectCeiling_body_entered(body):
 	if "cloud" in body.name:
