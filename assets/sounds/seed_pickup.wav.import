@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/seed_pickup.wav-1f5f1d063e659e33d6d3c460b78382fc.sample"
+
+[deps]
+
+source_file="res://assets/sounds/seed_pickup.wav"
+dest_files=[ "res://.import/seed_pickup.wav-1f5f1d063e659e33d6d3c460b78382fc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
