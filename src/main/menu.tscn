@@ -77,26 +77,26 @@ rect_min_size = Vector2( 26.99, 0 )
 custom_constants/separation = 510
 
 [node name="box" type="HBoxContainer" parent="VBoxContainer2/box2"]
-margin_right = 209.0
+margin_right = 217.0
 margin_bottom = 50.0
 custom_constants/separation = 110
 
 [node name="pre" type="Button" parent="VBoxContainer2/box2/box"]
-margin_right = 59.0
+margin_right = 67.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
-text = "previos"
+text = "previous"
 
 [node name="next" type="Button" parent="VBoxContainer2/box2/box"]
-margin_left = 169.0
-margin_right = 209.0
+margin_left = 177.0
+margin_right = 217.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 text = "next"
 
 [node name="Button3" type="Button" parent="VBoxContainer2/box2"]
-margin_left = 719.0
-margin_right = 928.62
+margin_left = 727.0
+margin_right = 936.62
 margin_bottom = 50.0
 rect_min_size = Vector2( 209.62, 50 )
 text = "back"
