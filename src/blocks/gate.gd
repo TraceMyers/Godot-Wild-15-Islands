@@ -18,12 +18,12 @@ func _on_Area2D_body_entered(_body):
 		already_opened = true
 
 func _door_anim_timer_timeout():
-	if Events.levels.size() > Events.current_level + 1:
+	if Events.levels.size() > Events.current_level:
 		fade.raise()
 		# warning-ignore:return_value_discarded
 		fade.get_node("AnimationPlayer").play("fadeIn")
 		yield(fade.get_node("AnimationPlayer"),"animation_finished")
-		get_tree().change_scene(path+Events.levels[Events.current_level + 1])
+		get_tree().change_scene(path+Events.levels[Events.current_level])
 	else:
 		fade.raise()
 		fade.get_node("AnimationPlayer").play("fadeIn")
