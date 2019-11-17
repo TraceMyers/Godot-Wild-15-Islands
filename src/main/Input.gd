@@ -34,5 +34,5 @@ func _physics_process(delta):
 		emit_signal("ladder_dir",Vector2(0,1))
 	if Input.is_action_just_pressed("enter"):
 		emit_signal("switch")
-	if Input.is_action_just_pressed("quite"):
+	if Input.is_action_just_pressed("quit"):
 		emit_signal("pause")
